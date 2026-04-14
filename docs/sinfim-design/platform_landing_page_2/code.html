@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Architectural Academic LMS - Transform Your Courses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#374765",
+                    "primary": "#041632",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474d",
+                    "surface-container": "#eceef0",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed": "#001f29",
+                    "on-tertiary-container": "#4a9dba",
+                    "tertiary-container": "#00303e",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#aeeecb",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "error-container": "#ffdad6",
+                    "secondary": "#2c694e",
+                    "surface": "#f7f9fb",
+                    "primary-container": "#1b2b48",
+                    "tertiary-fixed-dim": "#81d1f0",
+                    "inverse-surface": "#2d3133",
+                    "tertiary": "#001a23",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#b1f0ce",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#4f5e7e",
+                    "primary-fixed": "#d7e2ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#002114",
+                    "outline-variant": "#c5c6ce",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-container": "#8393b5",
+                    "background": "#f7f9fb",
+                    "outline": "#75777e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "inverse-primary": "#b7c7eb",
+                    "on-secondary-container": "#316e52",
+                    "on-primary-fixed": "#091b37",
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 40s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar (Landing Version) -->
+<header class="w-full py-4 bg-[#f7f9fb] dark:bg-[#041632]">
+<nav class="max-w-7xl mx-auto flex items-center justify-between px-12">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black text-[#041632] dark:text-white mx-auto font-headline">Sinfim.uz</span>
+<div class="hidden md:flex items-center gap-8 font-manrope text-base">
+<a class="text-[#2c694e] font-bold transition-all active:scale-98" href="#">How it works</a>
+<a class="text-[#191c1e] dark:text-white hover:opacity-70 transition-all active:scale-98" href="#">Benefits</a>
+<a class="text-[#191c1e] dark:text-white hover:opacity-70 transition-all active:scale-98" href="#">Demo</a>
+</div>
+</div>
+<div class="flex items-center gap-4 font-manrope">
+<button class="px-5 py-2 text-[#2c694e] font-semibold hover:opacity-70 transition-all active:scale-98">Enter Platform</button>
+<button class="px-6 py-2 bg-[#2c694e] text-white rounded-lg font-bold shadow-sm hover:opacity-90 transition-all active:scale-98">Request School</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 overflow-hidden px-6">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<h1 class="font-headline text-6xl font-extrabold text-primary leading-[1.1] mb-8 tracking-tight">
+                        Transform Your Telegram Courses into a <span class="text-secondary italic">Professional</span> Online School
+                    </h1>
+<p class="text-on-surface-variant text-xl mb-12 max-w-xl leading-relaxed">
+                        The ultimate LMS designed for educators scaling beyond chat groups. Automate homework, track progress, and provide a premium learning environment for your students.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-secondary text-white rounded-xl font-bold text-lg flex items-center gap-2 shadow-lg shadow-secondary/20 hover:opacity-95 transition-all">
+                            Request for My School
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 bg-surface-container-highest text-primary rounded-xl font-bold text-lg border border-outline-variant/15 hover:bg-surface-container-high transition-all">
+                            Watch Demo
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-12 -right-12 w-96 h-96 bg-secondary-container/30 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
+<div class="bg-surface-container-lowest p-4 rounded-[2rem] shadow-2xl shadow-primary/5 transform rotate-2">
+<img alt="LMS Dashboard Preview" class="rounded-2xl w-full" data-alt="A clean professional educational dashboard interface with course progress charts, student list, and elegant navy and green accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1skMuFrID9yosPmJVcRIaiLYhvObe6Ho6SRRY5LNdGRhzvaJMfg11tEtp8v22k_qRaHr3hWoMlYTrwlg_UIXjDZjmbFXN-uS2PmPgekl1yRBcSv2QmjVw-qB73FeTi29e_GuvbovStQ4xTbNrUEPd8svc_tr22oTwMvZP1yrdxz3lnmh90OB2N7lDtLv3JbVo3AhMg9MokGRJMHRJEMgcvlC4kpSuPh-_JwQEJ2X-ZyuKfynzIvANubV6KtKQN_DCM2j4u0sjNVAM"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee Section -->
+<section class="py-12 bg-surface-container-low border-y border-outline-variant/10 overflow-hidden">
+<div class="marquee-container">
+<div class="marquee-content flex items-center gap-24 px-12">
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="architecture">architecture</span>
+<span class="font-headline font-bold text-xl tracking-tight">Design Academy</span>
+</div>
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="account_balance">account_balance</span>
+<span class="font-headline font-bold text-xl tracking-tight">Heritage Institute</span>
+</div>
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="brush">brush</span>
+<span class="font-headline font-bold text-xl tracking-tight">Art &amp; Structure</span>
+</div>
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="code">code</span>
+<span class="font-headline font-bold text-xl tracking-tight">DevBuilders</span>
+</div>
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="auto_stories">auto_stories</span>
+<span class="font-headline font-bold text-xl tracking-tight">Classical Studies</span>
+</div>
+<!-- Duplicate for loop -->
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="architecture">architecture</span>
+<span class="font-headline font-bold text-xl tracking-tight">Design Academy</span>
+</div>
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="account_balance">account_balance</span>
+<span class="font-headline font-bold text-xl tracking-tight">Heritage Institute</span>
+</div>
+<div class="flex items-center gap-3 grayscale opacity-60">
+<span class="material-symbols-outlined text-4xl" data-icon="brush">brush</span>
+<span class="font-headline font-bold text-xl tracking-tight">Art &amp; Structure</span>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works (1-7 Steps) -->
+<section class="py-32 px-6 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<span class="text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">The Process</span>
+<h2 class="font-headline text-5xl font-extrabold text-primary mb-6">From Telegram to Professional LMS</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-lg">Our streamlined onboarding process takes your existing content and transforms it into a structured academic experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+<!-- Step 1 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">1</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">School Creation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Instantly generate your branded school workspace with our intelligent setup wizard.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="domain_add">domain_add</span>
+</div>
+<!-- Step 2 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">2</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">Course Migration</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Import your existing curriculum, videos, and PDFs from Telegram or Drive seamlessly.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="move_to_inbox">move_to_inbox</span>
+</div>
+<!-- Step 3 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">3</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">Mentor Assignment</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Onboard your teaching staff and assign them to specific groups or courses.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="groups">groups</span>
+</div>
+<!-- Step 4 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">4</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">Student Onboarding</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Automated invites and welcome sequences to get your learners started immediately.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="person_add">person_add</span>
+</div>
+<!-- Step 5 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">5</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">Lesson Delivery</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Automated scheduling of dripped content to keep students engaged over time.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="schedule">schedule</span>
+</div>
+<!-- Step 6 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">6</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">Homework Review</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Structured feedback loops where mentors can grade and comment on student work.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="fact_check">fact_check</span>
+</div>
+<!-- Step 7 -->
+<div class="relative group">
+<div class="mb-6 w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center font-headline text-2xl font-bold shadow-lg shadow-primary/20">7</div>
+<h3 class="font-headline text-xl font-bold mb-3 text-primary">Progress Tracking</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Real-time analytics on student completion rates and overall school health.</p>
+<span class="material-symbols-outlined absolute top-4 right-0 text-secondary/20 text-6xl -z-10 group-hover:scale-110 transition-transform" data-icon="insights">insights</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-32 px-6 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline text-5xl font-extrabold text-primary mb-6">Designed for Growth</h2>
+<p class="text-on-surface-variant text-lg">We've built tools that solve the specific pain points of high-volume course creators.</p>
+</div>
+<div class="mb-2">
+<span class="bg-secondary/10 text-secondary px-4 py-2 rounded-full font-bold text-sm">Enterprise Grade</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Benefit 1 -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] border border-outline-variant/10 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="w-14 h-14 bg-secondary-container rounded-2xl flex items-center justify-center text-on-secondary-container mb-8">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-4">Limitless Scalability</h3>
+<p class="text-on-surface-variant leading-relaxed">Whether you have 10 or 10,000 students, our infrastructure handles the load without skipping a beat. No more managing thousands of chat threads.</p>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] border border-outline-variant/10 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="w-14 h-14 bg-secondary-container rounded-2xl flex items-center justify-center text-on-secondary-container mb-8">
+<span class="material-symbols-outlined text-3xl" data-icon="psychology">psychology</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-4">Mentor Power Tools</h3>
+<p class="text-on-surface-variant leading-relaxed">Give your mentors a dedicated dashboard for homework review, direct messaging, and student history. Quality education at scale is now possible.</p>
+</div>
+<!-- Benefit 3 -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] border border-outline-variant/10 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="w-14 h-14 bg-secondary-container rounded-2xl flex items-center justify-center text-on-secondary-container mb-8">
+<span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-4">Learner Experience</h3>
+<p class="text-on-surface-variant leading-relaxed">A focused, distraction-free environment for students. Course materials, grades, and community are all housed in one professional academic portal.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="bg-primary rounded-[3rem] p-16 md:p-24 relative overflow-hidden text-center">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-secondary/10 rounded-l-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-1/4 h-1/2 bg-white/5 rounded-tr-full blur-2xl"></div>
+<h2 class="font-headline text-5xl md:text-6xl font-extrabold text-white mb-8 relative z-10 leading-tight">
+                        Ready to elevate your <br/> <span class="text-secondary-fixed">academic institution?</span>
+</h2>
+<p class="text-on-primary-container text-xl mb-12 max-w-2xl mx-auto relative z-10">Join 500+ academies who have moved their operations to Sinfim.uz.</p>
+<div class="flex flex-wrap justify-center gap-6 relative z-10">
+<button class="px-10 py-5 bg-secondary text-white rounded-xl font-bold text-xl hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-black/20">
+                            Request My School
+                        </button>
+<button class="px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-xl font-bold text-xl hover:bg-white/20 transition-all">
+                            Talk to Sales
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#c5c6ce]/15 bg-[#f2f4f6] dark:bg-[#041632]">
+<div class="max-w-7xl mx-auto px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-bold text-[#041632] text-xl font-headline">Sinfim.uz</span>
+<p class="font-inter text-xs tracking-wider uppercase text-slate-500">© 2024 Sinfim.uz LMS. All rights reserved.</p>
+</div>
+<div class="flex gap-10">
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline transition-opacity" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline transition-opacity" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

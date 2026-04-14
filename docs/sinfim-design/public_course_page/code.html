@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sinfim.uz | Advanced Architectural Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#4f5e7e",
+                    "on-background": "#191c1e",
+                    "tertiary": "#001a23",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "secondary-container": "#aeeecb",
+                    "primary": "#041632",
+                    "on-tertiary-container": "#4a9dba",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-container": "#8393b5",
+                    "outline": "#75777e",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "inverse-primary": "#b7c7eb",
+                    "on-secondary-container": "#316e52",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#81d1f0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "surface-dim": "#d8dadc",
+                    "surface": "#f7f9fb",
+                    "surface-bright": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed": "#001f29",
+                    "secondary": "#2c694e",
+                    "on-secondary-fixed": "#002114",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#00303e",
+                    "on-primary-fixed": "#091b37",
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#b1f0ce",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-surface-variant": "#44474d",
+                    "primary-fixed": "#d7e2ff",
+                    "background": "#f7f9fb",
+                    "primary-container": "#1b2b48",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c5c6ce",
+                    "on-primary-fixed-variant": "#374765",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-[#f7f9fb]/80 backdrop-blur-xl shadow-sm shadow-[#191c1e]/5 h-16 flex items-center">
+<div class="flex justify-between items-center px-8 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#041632] uppercase tracking-tighter">Architectural Academic</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#2c694e] border-b-2 border-[#2c694e] pb-1 text-sm font-medium hover:text-[#2c694e] transition-all" href="#">Browse Courses</a>
+<a class="text-slate-600 text-sm font-medium hover:text-[#2c694e] transition-all" href="#">Academic Credits</a>
+<a class="text-slate-600 text-sm font-medium hover:text-[#2c694e] transition-all" href="#">Help Center</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm p-0 w-48" placeholder="Search architecture..." type="text"/>
+</div>
+<button class="px-6 py-2 text-sm font-semibold text-secondary hover:underline transition-all">Sign In</button>
+<button class="px-6 py-2 bg-secondary text-white rounded-xl text-sm font-semibold shadow-sm hover:opacity-90 transition-all">Get Started</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-8 py-12 lg:py-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Content -->
+<div class="lg:col-span-8 space-y-16">
+<!-- Hero Section -->
+<section class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-widest rounded-full">Advanced</span>
+<span class="text-on-surface-variant text-sm font-medium">• Architectural Theory &amp; Design</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-extrabold text-primary tracking-tight leading-tight">
+                        Parametric Systems in <br/>Modern Urbanism
+                    </h1>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-2xl">
+                        A comprehensive deep-dive into computational design strategies, focusing on the intersection of algorithmic geometry and sustainable urban infrastructure.
+                    </p>
+<div class="flex flex-wrap gap-8 pt-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<div>
+<p class="text-xs uppercase tracking-wider text-on-surface-variant font-bold">Duration</p>
+<p class="font-semibold">12 Weeks</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+<div>
+<p class="text-xs uppercase tracking-wider text-on-surface-variant font-bold">Credits</p>
+<p class="font-semibold">15 ECTS</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">language</span>
+<div>
+<p class="text-xs uppercase tracking-wider text-on-surface-variant font-bold">Language</p>
+<p class="font-semibold">English (EN)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Image / Hero Card -->
+<div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high">
+<img alt="Modern architecture" class="w-full h-full object-cover" data-alt="abstract view of a modern parametric skyscraper facade with repeating geometric glass patterns under a clear blue sky, sharp focus, architectural photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsNDKl-KNPmTHniJ59vHuUjJnEXZHbRBP4MTi6rX4Wr2l__xk_aEG3WLZIZVu_dR02Bt0zzF0uAb6XlR7sU8ppaV9brhNKFajoJbjXW71GezUme_Q_sdQSg5omBzlh67LbpUJLHxBDBONKZdileWOxYRQ5iJJwu844nlfjVXEXhhVAq-SmsiXbF8XYmOiuUSdCKzqieLunt0aQ7eomtrjx2wT3nW8cXOftiQ9GxWfzg19TUoAC5yZeUdrZyBp1ZhgEluB6j7x_VnRG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<!-- What you will learn - Bento Grid -->
+<section class="space-y-8">
+<h2 class="text-3xl font-bold text-primary tracking-tight">What you will learn</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-8 rounded-3xl border-l-4 border-secondary space-y-4">
+<span class="material-symbols-outlined text-secondary text-3xl">polyline</span>
+<h3 class="text-xl font-bold">Computational Geometries</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Master the logic of NURBS, mesh topology, and recursive subdivision for complex form generation in Rhino and Grasshopper.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-3xl border-l-4 border-secondary space-y-4 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl">hub</span>
+<h3 class="text-xl font-bold">Urban Morphologies</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Analyze street patterns and density using algorithmic data processing to optimize urban flow and public space distribution.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-3xl border-l-4 border-secondary space-y-4 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl">eco</span>
+<h3 class="text-xl font-bold">Sustainable Integration</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Environmental performance simulations for solar radiation, wind flow, and acoustic optimization within the design phase.</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-3xl border-l-4 border-secondary space-y-4">
+<span class="material-symbols-outlined text-secondary text-3xl">architecture</span>
+<h3 class="text-xl font-bold">Fabrication Logic</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Bridge the gap between digital models and physical construction with automated nesting and CNC toolpath generation.</p>
+</div>
+</div>
+</section>
+<!-- Curriculum Overview -->
+<section class="space-y-8">
+<div class="flex justify-between items-end">
+<h2 class="text-3xl font-bold text-primary tracking-tight">Curriculum Overview</h2>
+<span class="text-secondary font-bold text-sm uppercase tracking-widest">6 Modules</span>
+</div>
+<div class="space-y-4">
+<div class="group bg-surface-container-lowest p-6 rounded-2xl flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-black text-outline-variant group-hover:text-secondary transition-colors">01</span>
+<div>
+<h4 class="font-bold text-lg">Foundations of Parametricism</h4>
+<p class="text-sm text-on-surface-variant">The history and evolution of non-linear design thinking.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</div>
+<div class="group bg-surface-container-lowest p-6 rounded-2xl flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-black text-outline-variant group-hover:text-secondary transition-colors">02</span>
+<div>
+<h4 class="font-bold text-lg">Data-Driven Design Workflows</h4>
+<p class="text-sm text-on-surface-variant">Integrating external datasets into the generative model.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</div>
+<div class="group bg-surface-container-low p-6 rounded-2xl flex items-center justify-between cursor-pointer border-l-4 border-secondary">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-black text-secondary">03</span>
+<div>
+<h4 class="font-bold text-lg">Advanced Geometric Optimization</h4>
+<p class="text-sm text-on-surface-variant">Structural form-finding and genetic algorithms.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">expand_more</span>
+</div>
+<!-- Expanded Content Placeholder -->
+<div class="pl-20 pr-6 py-4 space-y-3">
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">play_circle</span>
+<span>Lecture: Introduction to Galapagos and Wallacei</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">description</span>
+<span>Reading: Evolutionary Principles in Architecture</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Lead Form & Sticky Info -->
+<aside class="lg:col-span-4 space-y-8 sticky top-24">
+<div class="bg-primary p-8 rounded-[2rem] text-white shadow-2xl relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-secondary/20 rounded-full blur-3xl"></div>
+<h3 class="text-2xl font-bold mb-2 relative z-10">Enrolment Inquiry</h3>
+<p class="text-on-primary-container text-sm mb-8 relative z-10">Submit your interest and our academic advisors will contact you with full syllabus and fee details.</p>
+<form class="space-y-4 relative z-10">
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold mb-1.5 opacity-60">Full Name</label>
+<input class="w-full bg-white/10 border-none rounded-xl text-white placeholder-white/30 text-sm focus:ring-2 focus:ring-secondary py-3" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold mb-1.5 opacity-60">Academic Email</label>
+<input class="w-full bg-white/10 border-none rounded-xl text-white placeholder-white/30 text-sm focus:ring-2 focus:ring-secondary py-3" placeholder="john@university.edu" type="email"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold mb-1.5 opacity-60">Course Interest</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-xl text-white/80 text-sm py-3 px-4 cursor-not-allowed" readonly="" type="text" value="Parametric Systems in Modern Urbanism"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold mb-1.5 opacity-60">Message (Optional)</label>
+<textarea class="w-full bg-white/10 border-none rounded-xl text-white placeholder-white/30 text-sm focus:ring-2 focus:ring-secondary py-3" placeholder="Briefly describe your background..." rows="3"></textarea>
+</div>
+<button class="w-full bg-secondary hover:bg-[#316e52] text-white font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 mt-4" type="submit">
+                            Submit Application
+                            <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</form>
+</div>
+<!-- Trusted Badge Section -->
+<div class="bg-surface-container-low p-6 rounded-2xl space-y-4">
+<p class="text-[10px] uppercase tracking-widest font-black text-on-surface-variant opacity-60">Certified Academic Partner</p>
+<div class="flex items-center gap-4 grayscale opacity-70">
+<span class="font-black text-lg text-primary tracking-tighter">RIBA</span>
+<span class="font-black text-lg text-primary tracking-tighter">AIA</span>
+<span class="font-black text-lg text-primary tracking-tighter">UNESCO</span>
+</div>
+</div>
+<!-- Instructor Card -->
+<div class="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-high shrink-0">
+<img alt="Instructor profile" class="w-full h-full object-cover" data-alt="professional portrait of an architect in a black turtleneck, looking thoughtfully at the camera with a blurred modern office background, warm professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVJ3Wan4e3c9UuxPQqjzJSJittvdg1kWcubHjoMPWWdmtj76VXULthm--kNMKZXgQrz16FsqJgTRmTrB4OE86k4KBFWAuF1fkRPadrFUfZ7qVApjeYA2FX0gHqPgUEfzQKMhF08lXv26mXSMCeS1X20thF-jxBGiwbXa7pUxsz5N3ip4ycBMYrZDMptZ6lx0PlFnyMtP_Rn_zR5ehOo7J2J6_KgUI9-Xnb27nPs36T0Lq17OyLwogaBZPrxYsFVyc4uomy3wJtcNpF"/>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider font-bold text-secondary">Course Director</p>
+<h4 class="font-bold text-primary">Dr. Elias Thorne</h4>
+<p class="text-xs text-on-surface-variant italic">PhD, Architectural Computation</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f7f9fb] w-full py-12 border-t border-[#c5c6ce]/15">
+<div class="max-w-[1440px] mx-auto px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-bold text-[#041632] text-lg uppercase tracking-tighter">Architectural Academic</span>
+<p class="text-slate-500 text-xs tracking-wide">© 2024 Architectural Academic LMS. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 text-xs tracking-wide hover:underline decoration-[#2c694e] transition-all" href="#">Privacy Policy</a>
+<a class="text-slate-500 text-xs tracking-wide hover:underline decoration-[#2c694e] transition-all" href="#">Terms of Service</a>
+<a class="text-slate-500 text-xs tracking-wide hover:underline decoration-[#2c694e] transition-all" href="#">Accessibility</a>
+<a class="text-slate-500 text-xs tracking-wide hover:underline decoration-[#2c694e] transition-all" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>

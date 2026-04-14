@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#2c694e",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "outline-variant": "#c5c6ce",
+                    "secondary-fixed": "#b1f0ce",
+                    "background": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#091b37",
+                    "tertiary-container": "#00303e",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#d7e2ff",
+                    "primary": "#041632",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#b9eaff",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary": "#001a23",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#4a9dba",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#002114",
+                    "inverse-primary": "#b7c7eb",
+                    "on-background": "#191c1e",
+                    "surface-tint": "#4f5e7e",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "on-primary-fixed-variant": "#374765",
+                    "surface-dim": "#d8dadc",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#aeeecb",
+                    "on-surface-variant": "#44474d",
+                    "outline": "#75777e",
+                    "on-secondary-container": "#316e52",
+                    "tertiary-fixed-dim": "#81d1f0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "on-tertiary-fixed": "#001f29",
+                    "on-primary-container": "#8393b5",
+                    "primary-container": "#1b2b48",
+                    "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .tonal-shift {
+            background-color: #f2f4f6;
+        }
+        body {
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-[#041632] dark:bg-[#020b1a] w-[260px] h-screen sticky left-0 top-0 flex flex-col py-8 px-4 z-50">
+<div class="mb-10 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tight font-headline">Sinfim.uz</h1>
+<p class="text-[10px] text-on-primary-container uppercase tracking-[0.2em] font-medium">LMS Platform</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">edit_note</span> Lesson Editor
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span> Homework Review
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">group</span> Students
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">school</span> Courses
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">analytics</span> Reports
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md rounded-lg text-white font-semibold font-manrope text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">settings_suggest</span> Brand Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/5 rounded-lg font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">contact_support</span> Support
+                </a>
+</nav>
+<div class="mt-auto px-4">
+<div class="p-4 bg-white/5 rounded-xl">
+<p class="text-xs text-slate-400 mb-2">Current Plan</p>
+<p class="text-sm font-bold text-white">Academic Pro</p>
+<div class="w-full bg-white/10 h-1 mt-3 rounded-full overflow-hidden">
+<div class="bg-secondary w-3/4 h-full"></div>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-[#041632]/80 backdrop-blur-xl w-full h-16 sticky top-0 z-40 flex justify-between items-center px-8 shadow-sm dark:shadow-none border-b border-[#c5c6ce]/15">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline scale-90">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-xl text-sm focus:ring-1 focus:ring-secondary/30 transition-all" placeholder="Search school resources..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-primary">
+<button class="material-symbols-outlined opacity-80 hover:opacity-100 transition-opacity">notifications</button>
+<button class="material-symbols-outlined opacity-80 hover:opacity-100 transition-opacity">help_outline</button>
+<button class="material-symbols-outlined opacity-80 hover:opacity-100 transition-opacity">dark_mode</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-primary font-inter leading-tight">Azizbek Gafurov</p>
+<p class="text-[10px] text-outline font-medium">School Owner</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-white shadow-sm transition-transform group-hover:scale-105" data-alt="professional headshot of a middle-aged male school administrator with a warm smile and clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATe8MZPjZNXYszKX8F6ZQHxQUzZXQwWzWh5ARTz_DfUEpWzyAGKrs6zMF_00jjWIHr65goo5qS7wBDWJf10Obkc_C4W0L134B538pwF38ka0NUL-Bp_iFZqMeiLzAJrH2rXpf7lyv9Tsx48IPi6Edq66luVKzT_o5Z9Jv0VaE33sbPHyiSG0DbTChaFUUCtEZVmFoGdHpW4szdecaFkgbRjkarnSea-QWXIcnMH98l1raAkchAZR-QBB-mIYN-gCc7LU52pXlLeJdj"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-12 bg-surface">
+<div class="max-w-6xl mx-auto">
+<div class="mb-10">
+<div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-widest mb-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 
+                            Identity Management
+                        </div>
+<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight">Organization Settings</h2>
+<p class="text-on-surface-variant mt-2 max-w-2xl text-lg">Define how your academy appears to the public and your students. These settings affect your landing page and official communications.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Settings Form Column -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<!-- Brand Identity Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">palette</span>
+                                    Brand Identity
+                                </h3>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-outline-variant uppercase tracking-widest mb-2 font-inter">School Logo</label>
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 bg-surface-container-low rounded-xl border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center cursor-pointer hover:border-secondary/50 transition-colors">
+<span class="material-symbols-outlined text-outline">add_photo_alternate</span>
+<span class="text-[10px] text-outline mt-1 font-semibold">Upload</span>
+</div>
+<div class="flex-1 text-sm text-on-surface-variant">
+<p class="font-medium">Recommended: 512x512px SVG or PNG</p>
+<p class="text-xs mt-1 text-outline">Maximum size 2MB. Transparent backgrounds work best.</p>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-outline-variant uppercase tracking-widest mb-2 font-inter">School Description</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl text-sm p-4 focus:ring-1 focus:ring-secondary/30 transition-all" placeholder="Tell your students what makes your academy unique..." rows="4"></textarea>
+</div>
+</div>
+</section>
+<!-- Presence & Connectivity Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-40"></div>
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">lan</span>
+                                    Presence &amp; Connectivity
+                                </h3>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-outline-variant uppercase tracking-widest mb-2 font-inter">Public Page URL</label>
+<div class="flex">
+<span class="inline-flex items-center px-4 rounded-l-xl bg-surface-container-high text-outline text-sm font-medium border-none">sinfim.uz/</span>
+<input class="flex-1 bg-surface-container-low border-none rounded-r-xl text-sm p-3 focus:ring-1 focus:ring-secondary/30 transition-all font-semibold" type="text" value="modern-languages-center"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-xs font-bold text-outline-variant uppercase tracking-widest mb-2 font-inter">Contact Phone</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline scale-90">call</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-none rounded-xl text-sm focus:ring-1 focus:ring-secondary/30 transition-all" type="text" value="+998 90 123 45 67"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-outline-variant uppercase tracking-widest mb-2 font-inter">Telegram URL</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline scale-90">send</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-none rounded-xl text-sm focus:ring-1 focus:ring-secondary/30 transition-all" type="text" value="t.me/mlc_academy"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="flex justify-end pt-4">
+<button class="px-8 py-3 bg-secondary text-white font-bold rounded-lg shadow-lg hover:shadow-secondary/20 hover:scale-[1.02] transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                                    Save Changes
+                                </button>
+</div>
+</div>
+<!-- Sidebar / Preview Column -->
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<!-- Live Preview Component -->
+<div class="sticky top-24">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-xs font-extrabold text-outline uppercase tracking-widest">Live Preview</h4>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-[#fbbc05]"></div>
+<div class="w-2 h-2 rounded-full bg-[#34a853]"></div>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-outline-variant/10">
+<!-- Browser Header Simulation -->
+<div class="bg-surface-container-low px-4 py-2 flex items-center gap-4">
+<div class="flex gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+</div>
+<div class="bg-white px-3 py-1 rounded text-[10px] text-outline flex-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-[12px]">lock</span>
+                                            sinfim.uz/modern-languages-center
+                                        </div>
+</div>
+<!-- Public Page Content Preview -->
+<div class="relative">
+<div class="h-32 bg-primary relative overflow-hidden">
+<img alt="Cover" class="w-full h-full object-cover opacity-40" data-alt="vibrant modern educational space with students collaborating in a sunlit open-plan office setting with minimalist furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2wRMdgyh0zHfZU-Ja00CVdcLNp3dZwDr9y6MV9pYNz0_sJRI_EFzqzglhOd_jRORcjZc-lZHHiCCR85lWOWY9l8pSBCXkZ3TuAlDvoab9UT62DChTyC3u43tE7ggbUWewuq6QEk1mzBdk0rISIoXATlq3KSuAScipHAfq4kpAUVuqnIfJmLNUx9rz6Rybeb2_vTeyZZraeP1oOCF1pqHuUIZF__UWsq78QNMJMYwGamspe1UFhOIRwRq92ohe5Bq0QREzr8kxqUpr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+</div>
+<div class="px-6 -mt-10 relative z-10 pb-8">
+<div class="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center p-2 mb-4">
+<div class="w-full h-full bg-secondary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">school</span>
+</div>
+</div>
+<h5 class="text-xl font-extrabold text-primary font-headline">Modern Languages Center</h5>
+<p class="text-xs text-on-surface-variant font-medium mt-1 leading-relaxed">Expert-led language coaching for students and professionals. Over 200+ graduates globally.</p>
+<div class="mt-6 flex flex-wrap gap-2">
+<div class="bg-surface-container-low px-3 py-1.5 rounded-full flex items-center gap-1.5 text-[10px] font-bold text-primary">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+                                                    Verified Academy
+                                                </div>
+<div class="bg-surface-container-low px-3 py-1.5 rounded-full flex items-center gap-1.5 text-[10px] font-bold text-primary">
+<span class="material-symbols-outlined text-[14px] text-secondary">star</span>
+                                                    4.9 (124 reviews)
+                                                </div>
+</div>
+<div class="mt-8 space-y-3">
+<div class="h-10 w-full bg-secondary rounded-lg flex items-center justify-center text-white text-xs font-bold">
+                                                    View Courses
+                                                </div>
+<div class="h-10 w-full bg-white border border-outline-variant/30 rounded-lg flex items-center justify-center text-primary text-xs font-bold">
+                                                    Contact Us
+                                                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 p-4 bg-tertiary-fixed-dim/10 rounded-xl flex gap-3 items-start">
+<span class="material-symbols-outlined text-on-tertiary-container mt-0.5">info</span>
+<p class="text-xs text-on-tertiary-container leading-normal">
+<strong>Pro Tip:</strong> Your landing page is optimized for conversions. Adding a detailed description and high-quality logo increases student trust by 45%.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2f4f6] dark:bg-[#041632] w-full py-8 mt-auto border-t border-[#c5c6ce]/15 flex flex-col md:flex-row justify-between items-center px-12 font-inter text-xs tracking-wider uppercase">
+<div class="flex items-center gap-4 mb-4 md:mb-0">
+<span class="font-bold text-[#041632] dark:text-white">Sinfim.uz</span>
+<span class="text-slate-500 dark:text-slate-400">© 2024 Sinfim.uz LMS Platform. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">API Documentation</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Contact</a>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

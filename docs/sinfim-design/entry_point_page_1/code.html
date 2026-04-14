@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Architectural Academic - Entry Point</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#374765",
+                    "primary": "#041632",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474d",
+                    "surface-container": "#eceef0",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed": "#001f29",
+                    "on-tertiary-container": "#4a9dba",
+                    "tertiary-container": "#00303e",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#aeeecb",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "error-container": "#ffdad6",
+                    "secondary": "#2c694e",
+                    "surface": "#f7f9fb",
+                    "primary-container": "#1b2b48",
+                    "tertiary-fixed-dim": "#81d1f0",
+                    "inverse-surface": "#2d3133",
+                    "tertiary": "#001a23",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#b1f0ce",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#4f5e7e",
+                    "primary-fixed": "#d7e2ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#002114",
+                    "outline-variant": "#c5c6ce",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-container": "#8393b5",
+                    "background": "#f7f9fb",
+                    "outline": "#75777e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "inverse-primary": "#b7c7eb",
+                    "on-secondary-container": "#316e52",
+                    "on-primary-fixed": "#091b37",
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layer {
+            background: linear-gradient(180deg, #f7f9fb 0%, #f2f4f6 100%);
+        }
+        .action-gradient {
+            background: linear-gradient(135deg, #2c694e 0%, #316e52 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<header class="w-full py-4 max-w-7xl mx-auto flex items-center justify-between px-12 bg-surface">
+<div class="text-2xl font-black text-primary tracking-tight">Logo</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-primary font-bold font-headline text-base" href="#">How it works</a>
+<a class="text-on-surface hover:opacity-70 transition-opacity font-headline text-base" href="#">Benefits</a>
+<a class="text-on-surface hover:opacity-70 transition-opacity font-headline text-base" href="#">Demo</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-secondary font-semibold font-headline px-6 py-2 hover:bg-surface-container-low rounded-xl transition-all">Request School</button>
+<button class="bg-primary text-white font-semibold font-headline px-6 py-2 rounded-xl active:scale-95 transition-all">Enter Platform</button>
+</div>
+</header>
+<main class="min-h-[calc(100vh-160px)] flex flex-col items-center justify-center px-6 py-12">
+<div class="text-center mb-16 max-w-2xl">
+<h1 class="font-headline text-5xl font-extrabold text-primary mb-6 tracking-tight">Architectural Academic</h1>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed">Select your pathway to the future of design education. Whether you're managing an institution or beginning your learning journey, we have a space for you.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
+<div class="group relative flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-[8px_24px_24px_rgba(25,28,31,0.04)] hover:shadow-[8px_24px_32px_rgba(25,28,31,0.08)] transition-all cursor-pointer border border-outline-variant/15 overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="mb-6 flex items-center justify-between">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Enter My School</h3>
+<p class="font-body text-on-surface-variant text-base leading-snug">Access your administrative dashboard, manage faculty, and oversee curriculum development in your private workspace.</p>
+</div>
+<div class="group relative flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-[8px_24px_24px_rgba(25,28,31,0.04)] hover:shadow-[8px_24px_32px_rgba(25,28,31,0.08)] transition-all cursor-pointer border border-outline-variant/15 overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="mb-6 flex items-center justify-between">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">I am a Student</h3>
+<p class="font-body text-on-surface-variant text-base leading-snug">Log in to your personalized learner portal to continue your courses, submit homework, and receive mentor feedback.</p>
+</div>
+<div class="group relative flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-[8px_24px_24px_rgba(25,28,31,0.04)] hover:shadow-[8px_24px_32px_rgba(25,28,31,0.08)] transition-all cursor-pointer border border-outline-variant/15 overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="mb-6 flex items-center justify-between">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="explore">explore</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Explore Demo School</h3>
+<p class="font-body text-on-surface-variant text-base leading-snug">Experience the platform first-hand with a guided tour of our flagship architectural design curriculum and student UI.</p>
+</div>
+<div class="group relative flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-[8px_24px_24px_rgba(25,28,31,0.04)] hover:shadow-[8px_24px_32px_rgba(25,28,31,0.08)] transition-all cursor-pointer border border-outline-variant/15 overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="mb-6 flex items-center justify-between">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="add_business">add_business</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Request Platform for My School</h3>
+<p class="font-body text-on-surface-variant text-base leading-snug">Speak with our education specialists to deploy the Academic LMS within your own design firm or university department.</p>
+</div>
+</div>
+</main>
+<footer class="w-full py-12 border-t border-outline-variant/15 bg-surface-container-low flex flex-col md:flex-row justify-between items-center px-12">
+<div class="flex items-center gap-6 mb-4 md:mb-0">
+<span class="font-bold text-primary font-headline">Logo</span>
+<span class="font-inter text-xs tracking-wider uppercase text-slate-500">© 2024 Architectural Academic LMS. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:text-secondary hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:text-secondary hover:underline transition-all" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:text-secondary hover:underline transition-all" href="#">Contact</a>
+</div>
+</footer>
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-5%] w-[40%] h-[60%] rounded-full bg-secondary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[30%] h-[50%] rounded-full bg-primary/5 blur-[100px]"></div>
+</div>
+</body></html>

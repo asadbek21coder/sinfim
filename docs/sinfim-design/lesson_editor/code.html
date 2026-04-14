@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lesson Editor | Sinfim.uz</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#2c694e",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "outline-variant": "#c5c6ce",
+                        "secondary-fixed": "#b1f0ce",
+                        "background": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#091b37",
+                        "tertiary-container": "#00303e",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#d7e2ff",
+                        "primary": "#041632",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed": "#b9eaff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary": "#001a23",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#4a9dba",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#002114",
+                        "inverse-primary": "#b7c7eb",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#4f5e7e",
+                        "primary-fixed-dim": "#b7c7eb",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#aeeecb",
+                        "on-surface-variant": "#44474d",
+                        "outline": "#75777e",
+                        "on-secondary-container": "#316e52",
+                        "tertiary-fixed-dim": "#81d1f0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-tertiary-fixed": "#001f29",
+                        "on-primary-container": "#8393b5",
+                        "primary-container": "#1b2b48",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-secondary/30">
+<div class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="bg-[#041632] dark:bg-[#020b1a] w-[260px] h-screen sticky left-0 top-0 flex flex-col h-full py-8 px-4 z-50">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tight font-manrope">Sinfim.uz</h1>
+<p class="text-[10px] text-white/50 tracking-widest uppercase">LMS Platform</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto scrollbar-hide">
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">dashboard</span>
+                    Dashboard
+                </a>
+<a class="bg-white/10 backdrop-blur-md rounded-lg text-white font-semibold flex items-center gap-3 px-3 py-2.5 font-manrope text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+                    Lesson Editor
+                </a>
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">assignment_turned_in</span>
+                    Homework Review
+                </a>
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">group</span>
+                    Students
+                </a>
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">school</span>
+                    Courses
+                </a>
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">analytics</span>
+                    Reports
+                </a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-white/10 pt-6">
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">settings_suggest</span>
+                    Brand Settings
+                </a>
+<a class="text-slate-400 hover:text-white transition-colors group flex items-center gap-3 px-3 py-2.5 font-manrope text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-hover:scale-95">contact_support</span>
+                    Support
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface overflow-y-auto">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-40 bg-white/80 dark:bg-[#041632]/80 backdrop-blur-xl border-b border-[#c5c6ce]/15 flex justify-between items-center px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-1 focus:ring-secondary/30 placeholder:text-outline" placeholder="Search lessons or files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface opacity-80 hover:opacity-100 transition-opacity">notifications</button>
+<button class="material-symbols-outlined text-on-surface opacity-80 hover:opacity-100 transition-opacity">help_outline</button>
+<button class="material-symbols-outlined text-on-surface opacity-80 hover:opacity-100 transition-opacity">dark_mode</button>
+</div>
+<div class="h-6 w-px bg-outline-variant/30"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-primary leading-none">Prof. Alisher</p>
+<p class="text-[10px] text-outline font-medium">Administrator</p>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0GeuNOU-UlmD02DVhQMn9nuh57V5yzSFEI5Q5Dc4imNbmYiWyh_sgEVvEQKlRHb1moKOKRdibAU5WrglAY3c7aUv-BOZxrl62OWS-pEPztGGx-jEUdWIwyahwvoF9l47gYBWyWsUeWmXQAtHMQtar7egOgJhYQ7ZEKUyp1hLJRAVfo20D6D7_ANKwxrMXibYr7sHXGAERRtNgvIiGCubIi9O3qwgJNeJQ4rkDF7_NwhJ56Qc8Ig__Q62yAHJlxgg0zNLb4hQQ_HRc"/>
+</div>
+</div>
+</header>
+<!-- Editor Workspace -->
+<div class="p-10 max-w-6xl mx-auto w-full">
+<!-- Page Header with Asymmetric Layout -->
+<div class="flex justify-between items-end mb-12">
+<div class="space-y-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-secondary text-[10px] font-bold tracking-widest uppercase">Drafting Mode</span>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+</div>
+<h2 class="text-4xl font-extrabold font-manrope text-primary tracking-tight">Advanced Calculus: Integration</h2>
+<p class="text-outline-variant font-medium text-sm">Last saved: 2 minutes ago by System</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-xl border border-outline-variant/30 text-on-surface font-semibold text-sm hover:bg-surface-container-low transition-colors">Preview Lesson</button>
+<button class="px-8 py-2.5 rounded-xl bg-gradient-to-r from-secondary to-on-secondary-container text-white font-semibold text-sm shadow-lg shadow-secondary/20 hover:scale-[1.02] active:scale-95 transition-all">Publish Lesson</button>
+</div>
+</div>
+<!-- Editor Form (Bento Grid Style) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Basic Info Section -->
+<section class="col-span-8 bg-surface-container-lowest p-8 rounded-xl border border-transparent shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<h3 class="font-manrope font-bold text-lg text-primary">Basic Information</h3>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase pl-1">Lesson Title</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30 font-semibold text-primary" type="text" value="Advanced Calculus: Integration of Complex Functions"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase pl-1">Description &amp; Objectives</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30 leading-relaxed text-on-surface-variant" rows="4">In this lesson, we delve into the rigorous methods of integration for complex functions. We will cover Cauchy’s Integral Formula and its applications in real-world engineering problems.</textarea>
+</div>
+</div>
+</section>
+<!-- Lesson Metadata -->
+<section class="col-span-4 bg-surface-container-low p-8 rounded-xl">
+<h3 class="font-manrope font-bold text-lg text-primary mb-6">Course Settings</h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase">Associated Module</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30">
+<option>Module 04: Advanced Integrals</option>
+<option>Module 05: Series and Sequences</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase">Prerequisites</label>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="bg-secondary-container/30 text-on-secondary-container px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                                        Calculus III <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</span>
+<button class="bg-white px-3 py-1 rounded-full text-xs font-bold text-secondary border border-secondary/20 hover:bg-secondary/5 transition-colors">+ Add</button>
+</div>
+</div>
+<div class="pt-4">
+<div class="flex items-center justify-between p-3 bg-white rounded-lg">
+<span class="text-sm font-medium text-primary">Allow Comments</span>
+<div class="w-10 h-5 bg-secondary rounded-full relative">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Video / Media Section -->
+<section class="col-span-12 bg-surface-container-lowest p-8 rounded-xl border border-transparent shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<h3 class="font-manrope font-bold text-lg text-primary">Video Content</h3>
+</div>
+<span class="text-[10px] font-bold text-outline bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest">Telegram Stream Support</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase pl-1">Source Link</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30" placeholder="t.me/sinfim_stream/102934" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase pl-1">Duration (min)</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30" placeholder="45" type="number"/>
+</div>
+</div>
+<div class="p-6 border-2 border-dashed border-outline-variant/30 rounded-xl flex flex-col items-center justify-center bg-surface-container-low/50 group cursor-pointer hover:border-secondary/30 transition-colors">
+<span class="material-symbols-outlined text-4xl text-outline mb-2 group-hover:text-secondary transition-colors">cloud_upload</span>
+<p class="text-sm font-medium text-primary">Upload Custom Thumbnail</p>
+<p class="text-xs text-outline">Recommended size: 1920x1080px</p>
+</div>
+</div>
+<div class="relative group">
+<div class="aspect-video bg-primary rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="high quality educational video thumbnail showing a chalkboard with complex mathematical equations in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYw_cyzEqURXeHeqwKz25tZ5FFnMkvc6lERXfbuFPZhIq3lwEMR8FyyEjWs6lx3oSmuDyNI1tnz4nKIVF4fFMWVuDK-KjSsh_L2opetcBMgIhCmUhi6EJPJrLfCPJXS3e7zmnaKfItJbl4ERCIVGsKmHhhwBUG_j-MR1OD8rKTofknvc0p5jIPDntwenDAEbGeT7ajGxRYpYxcXVYkOTvDyfQuHbvFVtqvi8g0EfV-qeDTV4rmE9SGi70UYWkmTqxkl0K0f7vvtT6r"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<p class="mt-3 text-[10px] font-bold text-outline text-center uppercase tracking-widest">Video Preview</p>
+</div>
+</div>
+</section>
+<!-- Materials & Homework -->
+<section class="col-span-6 bg-surface-container-lowest p-8 rounded-xl border border-transparent shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<h3 class="font-manrope font-bold text-lg text-primary">Learning Materials</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-error-container text-on-error-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Calculus_Handout_V2.pdf</p>
+<p class="text-[10px] text-outline">12.4 MB • PDF Document</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-error">delete</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">data_table</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Formula_Sheet.xlsx</p>
+<p class="text-[10px] text-outline">2.1 MB • Spreadsheet</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-error">delete</button>
+</div>
+<button class="w-full py-4 border-2 border-dashed border-outline-variant/20 rounded-lg text-sm font-bold text-secondary hover:bg-secondary/5 transition-colors">
+                                + Add More Files
+                            </button>
+</div>
+</section>
+<!-- Homework / Submission -->
+<section class="col-span-6 bg-surface-container-lowest p-8 rounded-xl border border-transparent shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<h3 class="font-manrope font-bold text-lg text-primary">Homework Setup</h3>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase pl-1">Submission Deadline</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30" type="datetime-local"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-outline tracking-wider uppercase pl-1">Submission Instructions</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary/30" placeholder="Explain how students should submit their work..." rows="3"></textarea>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 p-3 bg-surface-container-low rounded-lg text-center">
+<p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Max Attempts</p>
+<p class="text-xl font-bold text-primary font-manrope">1</p>
+</div>
+<div class="flex-1 p-3 bg-surface-container-low rounded-lg text-center">
+<p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Points Value</p>
+<p class="text-xl font-bold text-primary font-manrope">100</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiz Builder (Complex Component) -->
+<section class="col-span-12 bg-white p-8 rounded-xl border border-transparent shadow-sm mb-12">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<h3 class="font-manrope font-bold text-lg text-primary">Knowledge Check (Quiz)</h3>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-low text-primary font-bold text-xs rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">shuffle</span> Shuffle
+                                </button>
+<button class="px-4 py-2 bg-secondary text-white font-bold text-xs rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span> New Question
+                                </button>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Question Card 1 -->
+<div class="border border-outline-variant/15 rounded-xl overflow-hidden">
+<div class="bg-surface-container-low px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-secondary bg-white w-6 h-6 rounded flex items-center justify-center border border-secondary/10">1</span>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Multiple Choice</span>
+</div>
+<div class="flex gap-3">
+<button class="material-symbols-outlined text-sm text-outline hover:text-primary">content_copy</button>
+<button class="material-symbols-outlined text-sm text-outline hover:text-error">delete</button>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<input class="w-full bg-transparent border-b border-outline-variant/30 border-t-0 border-x-0 p-0 pb-2 text-lg font-semibold text-primary focus:ring-0 focus:border-secondary" type="text" value="What is the derivative of sin(x) with respect to x?"/>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low/50 rounded-lg group">
+<div class="w-5 h-5 rounded-full border-2 border-secondary bg-secondary flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 flex-1" type="text" value="cos(x)"/>
+</div>
+<div class="flex items-center gap-3 p-3 border border-outline-variant/15 rounded-lg">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant"></div>
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 flex-1" type="text" value="-cos(x)"/>
+</div>
+<div class="flex items-center gap-3 p-3 border border-outline-variant/15 rounded-lg">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant"></div>
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 flex-1" type="text" value="tan(x)"/>
+</div>
+<div class="flex items-center gap-3 p-3 border border-outline-variant/15 rounded-lg">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant"></div>
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 flex-1" type="text" value="sec(x)"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer Component -->
+<footer class="w-full py-8 mt-auto bg-[#f2f4f6] dark:bg-[#041632] flex flex-col md:flex-row justify-between items-center px-12 border-t border-[#c5c6ce]/15">
+<p class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400">© 2024 Sinfim.uz LMS Platform. All rights reserved.</p>
+<div class="flex items-center gap-8 mt-4 md:mt-0">
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">API Documentation</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Contact</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,40 @@
+# AGENT INSTRUCTIONS
+
+## Project Context
+
+Read these to gain project context:
+
+    - {PROJECT_ROOT}/docs/overview.md
+    - {PROJECT_ROOT}/docs/specs/{relevant_spec}.md
+    - {PROJECT_ROOT}/docs/ai-context/HANDOFF.md
+    - {PROJECT_ROOT}/docs/ai-context/SESSION.md
+
+## Commands
+
+Read {PROJECT_ROOT}/{TASK_RUNNER_FILE} for available recipes.
+(e.g. justfile, Makefile, package.json)
+
+## Guidelines
+
+ALWAYS follow the project guidelines:
+
+    - stack guidelines: Skills "{STACK_GUIDELINES_SKILL}"
+    - workflow: Skills "red-green-tdd", "orchestrate", "backplan", "handoff-protocol"
+    - project-specific: {PROJECT_ROOT}/docs/
+
+## Pull Request Readiness
+
+- Every commit must compile, pass lint, and pass all tests. No "fix later" commits.
+- If `{VERIFY_COMMAND}` does not pass, the code is not done.
+
+## Subagent Selection
+
+| Task type  | Agent                   |
+| ---------- | ----------------------- |
+| `[impl]`   | `{DEVELOPER_AGENT}`     |
+| `[review]` | `{REVIEWER_AGENT}`      |
+| `[fix]`    | same as `[impl]`        |
+
+## Parallel Dispatch
+
+Tasks are generally safe to parallelize when they touch different modules or entities with no shared state.

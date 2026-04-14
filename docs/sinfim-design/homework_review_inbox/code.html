@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#2c694e",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "outline-variant": "#c5c6ce",
+                    "secondary-fixed": "#b1f0ce",
+                    "background": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#091b37",
+                    "tertiary-container": "#00303e",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#d7e2ff",
+                    "primary": "#041632",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#b9eaff",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary": "#001a23",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#4a9dba",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#002114",
+                    "inverse-primary": "#b7c7eb",
+                    "on-background": "#191c1e",
+                    "surface-tint": "#4f5e7e",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "on-primary-fixed-variant": "#374765",
+                    "surface-dim": "#d8dadc",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#aeeecb",
+                    "on-surface-variant": "#44474d",
+                    "outline": "#75777e",
+                    "on-secondary-container": "#316e52",
+                    "tertiary-fixed-dim": "#81d1f0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "on-tertiary-fixed": "#001f29",
+                    "on-primary-container": "#8393b5",
+                    "primary-container": "#1b2b48",
+                    "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sidebar-active {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 600;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c5c6ce; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body flex overflow-hidden h-screen">
+<!-- SideNavBar Component -->
+<aside class="w-[260px] h-screen sticky left-0 top-0 bg-[#041632] flex flex-col py-8 px-4 z-50">
+<div class="flex items-center gap-3 px-2 mb-10">
+<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tight font-headline">Sinfim.uz</h1>
+<p class="text-[10px] text-on-primary-container uppercase tracking-widest font-label">LMS Platform</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-95">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-95">edit_note</span>
+<span>Lesson Editor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-white/10 backdrop-blur-md rounded-lg text-white font-semibold font-manrope text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-95">assignment_turned_in</span>
+<span>Homework Review</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-95">group</span>
+<span>Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-95">school</span>
+<span>Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-95">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span>Brand Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition-colors font-manrope text-sm font-medium tracking-wide group hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 bg-background overflow-hidden">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-40 bg-white/80 backdrop-blur-xl flex justify-between items-center px-8 border-b border-[#c5c6ce]/15">
+<div class="flex items-center flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-secondary/20 font-inter" placeholder="Search by student name or assignment..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-primary opacity-80 hover:opacity-100 hover:text-secondary transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-primary opacity-80 hover:opacity-100 hover:text-secondary transition-opacity">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="p-2 text-primary opacity-80 hover:opacity-100 hover:text-secondary transition-opacity">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="text-sm font-bold text-primary font-inter leading-tight">Daler Sharipov</p>
+<p class="text-[10px] text-outline font-label uppercase tracking-wider">Lead Instructor</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover ring-2 ring-secondary-fixed" data-alt="Portrait of a professional male instructor in a blue blazer with a friendly expression, studio lighting, soft gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfOUrl8Wnjxy-Fmz-nONEcFrLaKoOayX69BJMN85CG5c3g58clEEOBK-71aC-1qIuH9UoAou1AMWDF-9ecULgyxRFvMvgDBpPsIrmKu5JQa0c48gAYGRKia43kD7OHPTYZKLEFLABbn23iPqK8MvAzmlWw5lTwE3rFh0vDMaJMuXORfTH5ffwxsH-88fTvjXJaEX8ePi_i_t4ftZMZrz8ACAY1fTOn3JqB30ITel3ElmCbO2llC_TzLFutX4KCCYQ16XYcjgYV2yjc"/>
+</div>
+</div>
+</header>
+<!-- Split Pane Layout -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Panel: Submission List -->
+<section class="w-[400px] flex flex-col border-r border-outline-variant/15 bg-surface-container-low/50">
+<div class="p-6 space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-lg font-bold font-headline text-primary">Submissions</h2>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded-md text-[11px] font-bold">24 PENDING</span>
+</div>
+<!-- Filters -->
+<div class="grid grid-cols-2 gap-2">
+<select class="bg-surface-container-lowest border-none text-xs rounded-lg py-2 pl-3 pr-8 focus:ring-1 focus:ring-secondary/30">
+<option>All Classes</option>
+<option>Grade 10-A</option>
+<option>Grade 11-C</option>
+</select>
+<select class="bg-surface-container-lowest border-none text-xs rounded-lg py-2 pl-3 pr-8 focus:ring-1 focus:ring-secondary/30">
+<option>Status: Pending</option>
+<option>Approved</option>
+<option>Revision</option>
+</select>
+</div>
+</div>
+<!-- Scrollable List -->
+<div class="flex-1 overflow-y-auto px-4 pb-6 space-y-3">
+<!-- List Item Active -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-secondary flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="close-up of a smiling young Central Asian student girl with glasses in a school library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1MHjIozFYeI5dAVLlvNq6G0ny0CyrwkW_N-jnL1h3Mggp8kNLodqxtcaSGUlYQK0xT2dv8wKnw7Ix8J7frYwaNlBgzS3QAqzsMJel2aEC3wKSipCXKdJC5fyYMW3i4K5oDRCGCeadxMIuESbemGKZdNwMNniYDHwzPTiL7k-nE9HCu69aQY0hzPxOL85Td_LM-h10WGf8cLem9no1Lhy8buEKaCPSAfeOxAjzRsGzrBfVI7Keg41sEMzeU-_ZUxY8KQHqvV2zDpRr"/>
+<div>
+<p class="text-sm font-bold text-primary leading-tight">Kamila Ismoilova</p>
+<p class="text-[11px] text-outline">Physics • Grade 11-A</p>
+</div>
+</div>
+<span class="text-[10px] text-outline font-medium">14:20</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2">Quantum Mechanics: Double Slit Experiment analysis and calculated results for wavelength...</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">description</span>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tight">Assignment #04</span>
+</div>
+</div>
+<!-- List Item -->
+<div class="bg-surface-container-lowest/60 p-4 rounded-xl border-l-4 border-transparent hover:border-outline-variant transition-all flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="teenager boy student with headphones around his neck, looking at camera, campus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0NG1ufdkoIoVCxPiw8B1zIkJPjivfrd4y8rNI6YwCuyXtiLU1JT5JYwUxiTQ46qnOyFePHfCqsfJRZ1LCm0Q16V68iH681UKBZZUcbL6AEWD93OyziMn4WhZw_dWnhvKYzhHKw1kvwV_TAse9ODMmfMygXecpDCAPdAxWyOIIXk2GQy-IJMdQbvE05u4uUWjsD-PtFQuPfdxEZtYXUYQMn5WvSfGqMwgkyOLoWgkdtDvHMEYqEPnmAw9L4E-hnFS7hSBdlaXyc9FY"/>
+<div>
+<p class="text-sm font-bold text-primary opacity-80 leading-tight">Azizbek Tursunov</p>
+<p class="text-[11px] text-outline">History • Grade 10-C</p>
+</div>
+</div>
+<span class="text-[10px] text-outline font-medium">12:05</span>
+</div>
+<p class="text-xs text-on-surface-variant/70 line-clamp-2">The Silk Road Impact: Essay on socio-economic changes in Central Asia during the 14th century...</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">mic</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tight">Audio Essay</span>
+</div>
+</div>
+<!-- List Item -->
+<div class="bg-surface-container-lowest/60 p-4 rounded-xl border-l-4 border-transparent hover:border-outline-variant transition-all flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="Portrait of a young man student in a green hoodie, modern academic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN5Z3h6AulXdsY4-2_7RvJIaDiNOWyzDoW7IOK8glGKk1xvKCMF28FN0fYpwD81A1md1yhxHAmzFgu2YbOjVTaU9SB81303juUcgQvk3rGbxpLBPzfu4GuBBzLzO04eoKZL6Dwg2kNmKbdoHnQbIRnRm95tEN7OuP1LT-O0syNaNm2vGIX0ILIs9KZDatBLgkhjKcXxgRgcIHYLG_BuuBd87aT4t5DKskqDSokfzkJwffN6QPVeS66CZGiQIPx8ngcgr8TkBhin1z9"/>
+<div>
+<p class="text-sm font-bold text-primary opacity-80 leading-tight">Bekhzod Karimov</p>
+<p class="text-[11px] text-outline">Algebra • Grade 11-A</p>
+</div>
+</div>
+<span class="text-[10px] text-outline font-medium">Yesterday</span>
+</div>
+<p class="text-xs text-on-surface-variant/70 line-clamp-2">Matrices &amp; Vectors: Homework problem set solved via digital tablet with annotations...</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">image</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tight">Problem Set 2</span>
+</div>
+</div>
+<!-- List Item -->
+<div class="bg-surface-container-lowest/60 p-4 rounded-xl border-l-4 border-transparent hover:border-outline-variant transition-all flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-bold text-primary/50">MJ</div>
+<div>
+<p class="text-sm font-bold text-primary opacity-80 leading-tight">Madina Jumaeva</p>
+<p class="text-[11px] text-outline">Physics • Grade 11-A</p>
+</div>
+</div>
+<span class="text-[10px] text-outline font-medium">Yesterday</span>
+</div>
+<p class="text-xs text-on-surface-variant/70 line-clamp-2">Electromagnetism: Laboratory report including charts and data visualization...</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">description</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tight">Lab Report</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Submission Details -->
+<section class="flex-1 flex flex-col bg-surface overflow-y-auto">
+<!-- Detail Header -->
+<div class="p-8 pb-4 flex items-end justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-secondary/10 text-secondary px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Physics • Assignment #04</span>
+<span class="text-outline text-xs">• Submitted Oct 24, 14:20</span>
+</div>
+<h2 class="text-2xl font-extrabold font-headline text-primary tracking-tight">Quantum Mechanics: Double Slit Analysis</h2>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full" data-alt="Student profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwdzrxZ3MD9nSeeOi5lSOIm4e27U8koCDPB1JgGyJptL4RnCTcD_E60c1u4CDrf1aHmP2bY220rHk-GkH8xC0JkutSI39EdQIDxdpw5yKth2j2aZgZAMD4P5otiCO9st82AUATvas3rH2R3tJS1kUJPO-ZEvGDR2IQVPY7-_5juKtXxP7ovfcM6gpKCJFMGep5MvCWj6AZudW7kPMq8egB6qyHXoSBkc47A2r3gpp9YHNiu6PKEleHRqV6XsY9rvlswqbl7S1tuC9F"/>
+<span class="text-sm font-semibold">Kamila Ismoilova</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-base">timer</span>
+<span class="text-xs">3 days remaining</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container-low text-primary px-4 py-2 rounded-xl text-sm font-bold hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-base">print</span>
+                            Print
+                        </button>
+<button class="bg-surface-container-low text-primary px-4 py-2 rounded-xl text-sm font-bold hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-base">share</span>
+                            Forward
+                        </button>
+</div>
+</div>
+<div class="p-8 grid grid-cols-12 gap-8">
+<!-- Left Col: Submission Content -->
+<div class="col-span-7 space-y-8">
+<!-- Instructions (Editorial Touch) -->
+<div class="bg-surface-container-low p-6 rounded-2xl border-l-4 border-secondary/30 relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">info</span>
+                                    Lesson Instructions
+                                </h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    Analyze the interference patterns observed in the virtual lab. Calculate the wavelength of the light source using the fringe spacing formula. Submit your calculations and a brief conclusion of 200-300 words.
+                                </p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-secondary opacity-5 pointer-events-none">quiz</span>
+</div>
+<!-- Student Answer: Text Section -->
+<div class="space-y-4">
+<h4 class="text-sm font-bold text-primary font-headline">Student Response</h4>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-4">
+<p class="text-sm text-on-surface leading-relaxed">
+                                    The double-slit experiment demonstrates that light and matter can display characteristics of both classically defined waves and particles. In my calculations, I used the following parameters: d = 0.25mm, L = 2.0m.
+                                    <br/><br/>
+                                    Based on the measured distance between the central fringe and the first maximum (Δy = 4.5mm), the calculated wavelength λ is approximately 562.5 nm. This puts the light source in the visible spectrum, specifically the green-yellow range.
+                                </p>
+</div>
+</div>
+<!-- Student Answer: Attachments -->
+<div class="space-y-4">
+<h4 class="text-sm font-bold text-primary font-headline">Submitted Files</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer group">
+<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-bold text-primary truncate">physics_lab_calc.pdf</p>
+<p class="text-[11px] text-outline">1.2 MB • Oct 24</p>
+</div>
+<span class="material-symbols-outlined text-outline opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer group">
+<div class="w-12 h-12 bg-secondary-container/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">image</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-bold text-primary truncate">interference_pattern.jpg</p>
+<p class="text-[11px] text-outline">4.5 MB • Oct 24</p>
+</div>
+<span class="material-symbols-outlined text-outline opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+</div>
+<!-- Audio Response -->
+<div class="bg-surface-container-low p-4 rounded-2xl flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-1">
+<div class="h-1 bg-outline-variant/30 rounded-full relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-secondary"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[10px] text-outline font-bold">Oral Conclusion.mp3</span>
+<span class="text-[10px] text-outline font-bold">0:45 / 2:15</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">equalizer</span>
+</div>
+</div>
+<!-- Right Col: Grading & Feedback -->
+<div class="col-span-5 space-y-6">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/10 sticky top-4">
+<h3 class="text-lg font-bold font-headline text-primary mb-6">Review &amp; Grading</h3>
+<form class="space-y-6">
+<!-- Status Selector -->
+<div>
+<label class="text-[11px] font-bold text-outline uppercase tracking-widest block mb-2">Final Status</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl border border-secondary bg-secondary/5 text-secondary transition-all" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-[10px] font-bold">APPROVED</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl border border-outline-variant hover:border-on-tertiary-container transition-all text-outline" type="button">
+<span class="material-symbols-outlined">sync</span>
+<span class="text-[10px] font-bold">REVISION</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl border border-outline-variant hover:border-error transition-all text-outline" type="button">
+<span class="material-symbols-outlined">cancel</span>
+<span class="text-[10px] font-bold">REJECTED</span>
+</button>
+</div>
+</div>
+<!-- Score Input -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="text-[11px] font-bold text-outline uppercase tracking-widest">Score</label>
+<span class="text-xs font-medium text-secondary">Max: 100</span>
+</div>
+<div class="flex items-center gap-4">
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-lg font-bold text-primary focus:ring-2 focus:ring-secondary/20" type="number" value="95"/>
+<div class="flex gap-1">
+<button class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center hover:bg-surface-container-high transition-colors text-primary" type="button">A+</button>
+<button class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center hover:bg-surface-container-high transition-colors text-primary" type="button">A</button>
+</div>
+</div>
+</div>
+<!-- Feedback Form -->
+<div>
+<label class="text-[11px] font-bold text-outline uppercase tracking-widest block mb-2">Instructor Feedback</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/20 font-inter resize-none" placeholder="Write your comments here..." rows="6">Excellent work, Kamila. Your calculations for wavelength are spot on. One small note: next time, please ensure your lab photo has better lighting to see the fringe separations clearly.</textarea>
+<div class="flex gap-2 mt-2">
+<button class="bg-surface-container-low px-3 py-1.5 rounded-lg text-[10px] font-bold text-outline hover:text-primary transition-colors" type="button">Quick Note: "Great Job!"</button>
+<button class="bg-surface-container-low px-3 py-1.5 rounded-lg text-[10px] font-bold text-outline hover:text-primary transition-colors" type="button">Quick Note: "Check Math"</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-gradient-to-r from-secondary to-[#316e52] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-secondary/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                                    SAVE &amp; SEND REVIEW
+                                </button>
+<p class="text-center text-[11px] text-outline">Student will receive a notification immediately.</p>
+</form>
+</div>
+<!-- Private Notes (Internal) -->
+<div class="p-6 rounded-2xl border-2 border-dashed border-outline-variant/30">
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest mb-3">Internal Teacher Notes</h4>
+<p class="text-xs text-outline italic">Only you and course administrators can see these notes.</p>
+<button class="mt-4 text-xs font-bold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add</span>
+                                Add Private Note
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Component -->
+<footer class="w-full py-6 mt-auto border-t border-[#c5c6ce]/15 bg-[#f2f4f6] flex flex-col md:flex-row justify-between items-center px-12 z-40">
+<p class="font-inter text-[10px] tracking-wider uppercase text-slate-500 font-medium">© 2024 SINFIM.UZ LMS PLATFORM. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="font-inter text-[10px] tracking-wider uppercase text-slate-500 hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-[10px] tracking-wider uppercase text-slate-500 hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-[10px] tracking-wider uppercase text-slate-500 hover:text-secondary transition-colors" href="#">API Documentation</a>
+<a class="font-inter text-[10px] tracking-wider uppercase text-slate-500 hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</main>
+</body></html>

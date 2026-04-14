@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sinfim.uz - Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#2c694e",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "outline-variant": "#c5c6ce",
+                        "secondary-fixed": "#b1f0ce",
+                        "background": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#091b37",
+                        "tertiary-container": "#00303e",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#d7e2ff",
+                        "primary": "#041632",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed": "#b9eaff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary": "#001a23",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#4a9dba",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#002114",
+                        "inverse-primary": "#b7c7eb",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#4f5e7e",
+                        "primary-fixed-dim": "#b7c7eb",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#aeeecb",
+                        "on-surface-variant": "#44474d",
+                        "outline": "#75777e",
+                        "on-secondary-container": "#316e52",
+                        "tertiary-fixed-dim": "#81d1f0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-tertiary-fixed": "#001f29",
+                        "on-primary-container": "#8393b5",
+                        "primary-container": "#1b2b48",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c5c6ce; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<header class="w-full h-16 sticky top-0 z-40 bg-white/80 dark:bg-[#041632]/80 backdrop-blur-xl border-b border-[#c5c6ce]/15 shadow-sm dark:shadow-none flex justify-between items-center px-8">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" data-icon="school">school</span>
+</div>
+<span class="text-xl font-bold text-primary tracking-tight font-headline">Sinfim.uz</span>
+</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#2c694e] font-bold font-inter text-sm" href="#">Dashboard</a>
+<a class="text-[#191c1e] dark:text-slate-300 hover:text-[#2c694e] transition-opacity font-inter text-sm" href="#">Courses</a>
+<a class="text-[#191c1e] dark:text-slate-300 hover:text-[#2c694e] transition-opacity font-inter text-sm" href="#">Assignments</a>
+<a class="text-[#191c1e] dark:text-slate-300 hover:text-[#2c694e] transition-opacity font-inter text-sm" href="#">Library</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none rounded-full text-xs w-64 focus:ring-1 focus:ring-secondary/30" placeholder="Search lessons..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:opacity-100 opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:opacity-100 opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="hover:opacity-100 opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Lvl 12 Scholar</p>
+</div>
+<img alt="User Profile" class="w-9 h-9 rounded-full object-cover border-2 border-secondary/20" data-alt="close-up portrait of a young male student with a friendly expression in soft library lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZZO3rxYo3uQy_k7o4sAm0jLnng5hG8UUx_ZMvDbUrt8SYTTekBNOHamlqiPl6TgDirl8B07wtC4vy7BGkGhxYt1-iop3IJ_JHlx_Q-cOnrwl4TL9j3SdiQjyobaq_o9H-pisGz8glncMd4jxCBiZzWSRjIw5f7ylRTgm2K-8vOL7yol-fHhI2A57eaWEVia0FX--g7_TzHwSBXLw22Q8lxGRbcVgaGJogxL10p1PmAs7lDggoLdEoM5uzCrq2tvarOVSRVbIdJZ58"/>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-[1440px] mx-auto w-full px-8 py-8 flex gap-8">
+<aside class="w-[260px] hidden xl:flex flex-col gap-6 sticky top-24 h-fit">
+<div class="bg-surface-container-low rounded-xl p-6">
+<h3 class="text-[10px] font-bold text-outline uppercase tracking-widest mb-4">Study Progress</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs mb-1.5">
+<span class="font-medium">Total Curriculum</span>
+<span class="font-bold text-secondary">68%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[68%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1.5">
+<span class="font-medium">Weekly Goal</span>
+<span class="font-bold text-secondary">4/5 hrs</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[80%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary rounded-xl p-6 text-white relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary-fixed-dim mb-3 block" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-headline font-bold text-lg leading-tight mb-2">Upgrade to Pro Academic</h4>
+<p class="text-xs text-on-primary-container leading-relaxed mb-4">Access unlimited mock exams and 1-on-1 mentor sessions.</p>
+<button class="bg-secondary hover:bg-on-secondary-container transition-colors text-white text-xs font-bold py-2.5 px-4 rounded-lg w-full">Learn More</button>
+</div>
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all"></div>
+</div>
+<div class="space-y-2">
+<h3 class="text-[10px] font-bold text-outline uppercase tracking-widest px-2 mb-2">Quick Links</h3>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="book">book</span>
+<span class="text-sm font-medium">Digital Library</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span class="text-sm font-medium">Study Groups</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="emoji_events">emoji_events</span>
+<span class="text-sm font-medium">Achievements</span>
+</a>
+</div>
+</aside>
+<section class="flex-1 flex flex-col gap-8">
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8">
+<div class="relative h-[280px] rounded-2xl overflow-hidden bg-primary p-10 flex flex-col justify-end group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="collaborative workspace with students working together on laptops in a modern brightly lit university setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0o8fRPORdG7cP3OS_FY_wbgkpQXJzz8CRemmWoJCD5Ihd8gqf-McU4phxeTSgAThOYQRypq2LZysYM_doM3spjnogapqyx7ny-LIPTo9mEmc-3yYfRAuNHsCS3uXZPJzb8QiGz2fHF3K00wwN2lB6sKjLEO-Q7KIQkg049Lq-E0eZMFjTTSHqqlY5lSIylXrUM1vTnfyFfEjpcCMUP9D-nnGtr8kYlxAYuYdB_TmvNmctbmxQ9hDNUt9BWBqs-ldNBQPXu3degW_G"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 text-secondary-fixed-dim text-xs font-bold mb-3">
+<span class="bg-secondary/40 px-2 py-1 rounded backdrop-blur-md uppercase tracking-wider">Live Now</span>
+<span>• 42 classmates attending</span>
+</div>
+<h1 class="text-3xl font-headline font-extrabold text-white mb-4 leading-tight">Advanced Algorithms &amp;<br/>Data Structures</h1>
+<div class="flex items-center gap-6">
+<button class="bg-secondary hover:bg-on-secondary-container text-white px-6 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                    Join Today's Lesson
+                                </button>
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-primary object-cover" data-alt="portrait of student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-2fdC3EpzfUpg-U4L3FmVQWXz37oQRMc7CPBqPQku7wkAV9BZgGY0wqoMwhqN8n-gKxiBGKcLffL4S_0OLukIuUpMwrVdkWpTHlIISIr7VdE6DwQ0GLOhPG5WcUxwMMS1PlmVpLuKX0ei-L1kXY7BvHkxxDJAjHWIf5pdbIcwCPN01t-zkYpetcpT3L5QPnNAH0h5wsveJI2BmxejoW0GRsrffM-_7k2RoKVjXfZ9bDEa9W9AuFr-Ogu3YBbDTC5QwRP30yQ1CATV"/>
+<img class="w-8 h-8 rounded-full border-2 border-primary object-cover" data-alt="portrait of student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZZGbKpxLgFt1-vedfJLc2bUXKju5TPEgrexEL59pUGu-d1lF8KLvxNzROtW0N-YyQ3yw31_U1gvdj0sJ08tyWNFdeX6Vv6UVsJGvnlzPnhGZekzvTHoKvpEB28_Cw4sPNJz_VAiTF2nq-oynrgVN3QHTNt7WLBNL7_YjGBrrI_mo4cEYrlKc2z1gdMwtbhODWV-K7hMjMLFc-axVXjSagUHh8JUgs4vj17mAl7TGTZnwPoMx68pCApz_MBBJ8nz_ajes85ZebTARn"/>
+<img class="w-8 h-8 rounded-full border-2 border-primary object-cover" data-alt="portrait of student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwVeqvZ2hv-EuJayiyqZZ3DYTEIn3EUNyEQiqEjYBciJjuVvHdZMXyJ016j8Sih5YRjh2Y3A9QaMmnbAmFI6iZv_VUekNQfrihEIVeXCvMtfde_UuPWXd9y2DjA8k1OgoKRYP7BcBOnfn_4JUe8GO7CTbF-dyNL1aANtmmtiJX7rVW4Sb550vqZWj9BvaCpFs5l__DBf-bbhPL304aiIKM_WvjlBXX6D3tw00ubLeJTj1UqEvZ8PCYVPaSysHCW4VAyOBxjUrsoXW4"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-primary flex items-center justify-center text-[10px] font-bold text-primary">+39</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-2xl p-6 border-l-4 border-secondary shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline font-bold text-on-surface">Homework Review</h2>
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded-full">3 Pending</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10">
+<div class="bg-surface-container-low p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+</div>
+<div>
+<p class="text-xs font-bold leading-tight mb-1">Physics: Quantum Mechanics Quiz</p>
+<p class="text-[10px] text-error font-medium">Due in 2 hours</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="bg-surface-container-low p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="edit_calendar">edit_calendar</span>
+</div>
+<div>
+<p class="text-xs font-bold leading-tight mb-1">History: Final Essay Draft</p>
+<p class="text-[10px] text-on-surface-variant">Due Tomorrow, 11:59 PM</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 text-xs font-bold text-secondary hover:underline text-center">View All Assignments</button>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-4">
+<div class="bg-white p-2 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="emoji_events">emoji_events</span>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Active Streak</p>
+<p class="text-lg font-headline font-black text-primary leading-none">14 Days</p>
+</div>
+<div class="ml-auto text-secondary font-black text-xl italic opacity-30">🔥</div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-headline font-extrabold text-primary">My Courses</h2>
+<p class="text-sm text-on-surface-variant">3 active courses in progress</p>
+</div>
+<button class="text-sm font-bold text-secondary flex items-center gap-1 hover:gap-2 transition-all">
+                        Browse Catalog <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-32 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of a modern laptop screen showing code and software development interface in a warm bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV_PahY0juhoREWVcmV8luH-swVdSwd9yZ4316GAVVpC8AAqU_LzcVXp8BYjWYeNtyT7Ruc4rTFWR6yXJEb5d-YTnAvd_5g8BcB1-D12XsrRY_kkfRNCuxYPQ3cCfz5ETJKFVR7kmJf8dTlhldRobWDka3SEJusggnBNMaiNeZBA_u96FuOTCqWYCh9q_oCEqURqWuW76Jr2BZLHV3PJ7hth112GbWDK_ICv67ajM--7kWxxolvkQj_rp8KNke6RckdCXfWUQnDvou"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[10px] font-bold px-2 py-1 rounded-md text-primary">TECHNOLOGY</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<h3 class="font-headline font-bold text-on-surface text-sm mb-2 group-hover:text-secondary transition-colors">UI/UX Design Masterclass 2024</h3>
+<div class="flex items-center gap-2 mb-4">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="mentor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgVrnOLw9AcZGaR6XnEVoLy1zM-QyulKyFnpjracS4AVqSUYriHXhTIyfCUay5vhPhVW-vIEl5euWFogQZSZp9BVF2NT7a8StTmp6vCQFOHwg7AkVdXyeCMPufHYasgFS1g17iaCNx2k6LXvfsyoehK1Z7AH6DkSx9Ik2bNNaAtRcKoyulL5Oga0Zh_DGjX1fGY3jwO7JXqT0i2Gb7l46bwAgLny5TFeqqSE2staoiGq9qqxNQcNQfp_IunL7q15_r5d0ZofFxftkm"/>
+<span class="text-[10px] text-on-surface-variant font-medium">with Prof. Julian Vane</span>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between text-[10px] font-bold mb-1.5">
+<span class="text-on-surface-variant uppercase">Progress</span>
+<span class="text-secondary">42%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low rounded-full">
+<div class="h-full bg-secondary w-[42%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-32 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="abstract educational background with pencils and mathematical symbols in a clean bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ8n0h6uwU-xb6yBhGkj_-T-7qSglzvPM0ejYDQdTlEjANti4_T7T2fvNvBqC60Obdgjdz-jfAkaY5N-id3O5XScokWpmPYh1eepxTi_8CK5xxkVmegRpjORikpTCq8SAAWMtsvZRry7TI3uxc8SRjp37RluOoDcs8w93X-xEotWcBbha0CI9U2x0wQDPsW0VVif_J4ssF7TaXVT3M13cOG6B896n5iF_9Dpc9fnJsUvsItyhVmtXpEb_CMyh7Sa2VesuTyW49awJb"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[10px] font-bold px-2 py-1 rounded-md text-primary">MATHEMATICS</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<h3 class="font-headline font-bold text-on-surface text-sm mb-2 group-hover:text-secondary transition-colors">Discrete Math for Engineers</h3>
+<div class="flex items-center gap-2 mb-4">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="mentor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKMIrst5bfdhFi8zS-mEjBYpoDWJyTx0IX4JpISw8e2xClRQuv1MB4XxWl6rtMhbgcnMg0ezfQqTT2vvmkFa5l3qovUOAuIVgDkQfqvduggpGCIFJTAFV848GmW8HoI_lsK5KkOBzLoLzR2avtm170QINde7COJflXmuA0b4i-hJrN4ldVqh5Wax4HY4RqHS8ljjPA09Zz2X9Dfutdtx4ZcmsAJS3XNMVyViYMZ6w87Y0_WoXjh4uguKWYHXp-SHSc3EE0EEntuxhd"/>
+<span class="text-[10px] text-on-surface-variant font-medium">with Dr. Elena Ross</span>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between text-[10px] font-bold mb-1.5">
+<span class="text-on-surface-variant uppercase">Progress</span>
+<span class="text-secondary">85%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low rounded-full">
+<div class="h-full bg-secondary w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-32 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="person writing notes on paper with a laptop and coffee cup nearby in a clean organized workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATxwPTk4eEsy0uRCUIT8XZ00AL239v3rm4ORFy4teQVZRerMonEC0jq3n31jlaHuYQFlyjaa3d8Nhdy-Fr2It9DOa6kAXxURurnJaboTpKxfvnc55hOiTn0wyL3oVa7OIMxbpucJ8Npb1iTlHzzVH4zMh5w-qgW-ub1PskacvPZ7oIv4CoRSe78jV5gWuJczTrkEmx2QFB6DEK1zX9nPQ4b7eZTy9FvDFvmUwYGYqOKCboJBaq3PpLFpa4idV9OzCrqJi-tUtd727N"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[10px] font-bold px-2 py-1 rounded-md text-primary">BUSINESS</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<h3 class="font-headline font-bold text-on-surface text-sm mb-2 group-hover:text-secondary transition-colors">Digital Marketing Fundamentals</h3>
+<div class="flex items-center gap-2 mb-4">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="mentor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJv8bwkAPrZVZe3CAjw1azW-uyZEYop2biUsfJ8tUa2grYWo23csK8O4GaG9Kbc3lwP3Dfgs4EqYiPlirX1JBY4_kdxv8wQ26voDMjm18JW-HzJAURyWPPnhOuUJ57_H6ya2tR8JagggctoMzv04TRqiXwxAFWZAOs1OG4GeUmEXFUOZWv6MWZQUf4B8FGWb3WnCexh4GyfcWsEhghsD7jWIY5vWUwxDuwSK1XvH-efzZMuEaxGYGH998ONPiageXRYXhnkI1EXRjS"/>
+<span class="text-[10px] text-on-surface-variant font-medium">with Marcus Thorne</span>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between text-[10px] font-bold mb-1.5">
+<span class="text-on-surface-variant uppercase">Progress</span>
+<span class="text-secondary">12%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low rounded-full">
+<div class="h-full bg-secondary w-[12%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-3xl p-8">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="forum">forum</span>
+<h2 class="text-xl font-headline font-bold text-primary">Latest Mentor Feedback</h2>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex gap-6 items-start shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="mentor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuB7XmGi1eCMHJIr8dLlewJdzemWpfCJq69PK767jhE0dLexkd8BH9RuJ2ikcqSUx_N5HVC6JndQRK1NxB2OgAiwscIsc9So-Geu13WsIxmHLnE10r7jUuUfxMJgihKaUBrZn5abOorMmCzbHrfyhWW86FlkqLOz2B64rAchaU3H-D9Cd7xUc1-MuoWlJTDj0gGJZttL5V6yp92yYcAiS9mZxcBz1T6C95HIwRtsGko731jHdZriZf7mTP2qilo5bEkwsVnsbdZtf7"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-bold text-sm text-on-surface">Dr. Elena Ross</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-semibold">Discrete Math • 2 hours ago</p>
+</div>
+<span class="text-[10px] font-bold bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded">NEW</span>
+</div>
+<p class="text-sm text-on-surface-variant italic leading-relaxed">"Excellent work on the set theory module, Alex! Your approach to the proof in task 4 was quite creative. I've left some detailed notes on how to optimize the logic for the upcoming midterm."</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex gap-6 items-start opacity-75 shadow-sm">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="mentor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKVZKcLGOCl50qEx51epqk4L1s4__HxKEipAbnSrAl8Jq0XwuV380nt54FJa0wGkm7iCmJ8DjQjTgx6gTZrJ1qVC4Mn3v5IjSnIXeKD-I1kTmXR6rtavYh6psF9-380_Vh7AJxYOSSK2hrtZoYczwIfKnOSEcX7p7SmgxJHZU4_1bSqr8RH96CCamoUq8GMmuzzH9H9b1UtfWmLxIlwWqPTzJmgGE8Rf0sZP35DhFHbGkjdHEm7dl-IUzgFQKRWFmKan2uuXbsJtju"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-bold text-sm text-on-surface">Prof. Julian Vane</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-semibold">UI/UX Design • Yesterday</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant italic leading-relaxed">"The color accessibility check you performed on the latest wireframe was thorough. Keep focusing on the contrast ratios as we move into high-fidelity designs next week."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-8 mt-auto border-t border-[#c5c6ce]/15 bg-[#f2f4f6] dark:bg-[#041632] flex flex-col md:flex-row justify-between items-center px-12">
+<div class="flex flex-col items-center md:items-start gap-2 mb-6 md:mb-0">
+<span class="font-bold text-[#041632] dark:text-white font-headline">Sinfim.uz</span>
+<p class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400">© 2024 Sinfim.uz LMS Platform. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">API Documentation</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Contact</a>
+</div>
+</footer>
+</body></html>

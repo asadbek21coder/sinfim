@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sinfim.uz - Secure Authentication</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#4f5e7e",
+                    "on-background": "#191c1e",
+                    "tertiary": "#001a23",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "secondary-container": "#aeeecb",
+                    "primary": "#041632",
+                    "on-tertiary-container": "#4a9dba",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-container": "#8393b5",
+                    "outline": "#75777e",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "inverse-primary": "#b7c7eb",
+                    "on-secondary-container": "#316e52",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#81d1f0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "surface-dim": "#d8dadc",
+                    "surface": "#f7f9fb",
+                    "surface-bright": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed": "#001f29",
+                    "secondary": "#2c694e",
+                    "on-secondary-fixed": "#002114",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#00303e",
+                    "on-primary-fixed": "#091b37",
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#b1f0ce",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-surface-variant": "#44474d",
+                    "primary-fixed": "#d7e2ff",
+                    "background": "#f7f9fb",
+                    "primary-container": "#1b2b48",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c5c6ce",
+                    "on-primary-fixed-variant": "#374765",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .auth-split-bg {
+            background: linear-gradient(135deg, #041632 0%, #062a5e 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container/30">
+<div class="flex min-h-screen">
+<!-- Brand/Visual Side -->
+<div class="hidden lg:flex lg:w-1/2 auth-split-bg relative overflow-hidden items-center justify-center p-12">
+<div class="absolute inset-0 opacity-10">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10 max-w-lg text-center lg:text-left">
+<div class="mb-12">
+<h1 class="font-headline text-4xl font-extrabold text-white tracking-tighter uppercase mb-2">Sinfim.uz</h1>
+<div class="h-1 w-24 bg-secondary rounded-full"></div>
+</div>
+<div class="space-y-8">
+<h2 class="font-headline text-5xl font-bold text-white leading-tight">
+                        Empowering the next generation of <span class="text-secondary-fixed">structural visionaries</span>.
+                    </h2>
+<p class="text-on-primary-container text-lg leading-relaxed max-w-md">
+                        Access your comprehensive curriculum, academic credits, and specialized architectural courses in one unified environment.
+                    </p>
+</div>
+<div class="mt-16 grid grid-cols-2 gap-6">
+<div class="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10">
+<span class="material-symbols-outlined text-secondary-fixed mb-3 text-3xl">verified_user</span>
+<h4 class="text-white font-bold mb-1">Secure Access</h4>
+<p class="text-xs text-on-primary-container">Multi-layered security for your academic records.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10">
+<span class="material-symbols-outlined text-secondary-fixed mb-3 text-3xl">school</span>
+<h4 class="text-white font-bold mb-1">Global Standard</h4>
+<p class="text-xs text-on-primary-container">Accredited materials following international norms.</p>
+</div>
+</div>
+</div>
+<!-- Abstract background shape -->
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+</div>
+<!-- Authentication Side -->
+<div class="w-full lg:w-1/2 flex flex-col bg-surface overflow-y-auto">
+<!-- Mobile Brand Header -->
+<div class="lg:hidden p-6 flex justify-center">
+<h1 class="font-headline text-2xl font-black text-primary uppercase tracking-tighter">Sinfim.uz</h1>
+</div>
+<main class="flex-grow flex items-center justify-center p-8 lg:p-16">
+<div class="w-full max-w-[420px]">
+<!-- Step Indicator -->
+<div class="flex items-center gap-4 mb-12">
+<div class="flex-1 h-1 rounded-full bg-secondary"></div>
+<div class="flex-1 h-1 rounded-full bg-surface-container-high"></div>
+</div>
+<div class="mb-10">
+<h3 class="font-headline text-3xl font-bold text-on-background mb-3">Welcome back</h3>
+<p class="text-on-surface-variant">Enter your credentials to access the Sinfim.uz Academic Console.</p>
+</div>
+<form class="space-y-6">
+<!-- Phone Input -->
+<div class="space-y-2">
+<label class="block font-label text-xs font-semibold uppercase tracking-wider text-on-surface-variant ml-1">Phone Number</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg">call</span>
+</div>
+<input class="w-full pl-11 pr-4 py-3.5 bg-surface-container-low border-0 rounded-xl ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-secondary focus:bg-white transition-all text-on-surface placeholder:text-outline/50" placeholder="+998 (__) ___-__-__" type="tel"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="block font-label text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Temporary Password</label>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg">lock</span>
+</div>
+<input class="w-full pl-11 pr-12 py-3.5 bg-surface-container-low border-0 rounded-xl ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-secondary focus:bg-white transition-all text-on-surface placeholder:text-outline/50" placeholder="••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+<div class="mt-2 flex items-start gap-2 p-3 rounded-lg bg-surface-container text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm mt-0.5 text-secondary">info</span>
+<p>First-time users: Check your registered SMS for the temporary access code provided by your organization.</p>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full bg-secondary hover:bg-on-secondary-container text-white font-bold py-4 rounded-xl shadow-lg shadow-secondary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+<span>Continue to Setup</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</form>
+<div class="mt-8 flex items-center gap-4 py-4 px-6 rounded-2xl bg-surface-container-low/50 border border-outline-variant/10">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">support_agent</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-background">Need assistance?</p>
+<p class="text-[11px] text-on-surface-variant">Enter your credentials to access the Sinfim.uz Academic Console.</p>
+</div>
+<a class="text-xs font-bold text-secondary hover:underline" href="#">Get Help</a>
+</div>
+</div>
+</main>
+<!-- Footer Section Mapping from JSON -->
+<footer class="w-full py-12 border-t border-[#c5c6ce]/15 bg-[#f7f9fb] dark:bg-slate-900 mt-auto">
+<div class="max-w-[1440px] mx-auto px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="font-bold text-[#041632] dark:text-white uppercase tracking-tighter text-sm">Sinfim.uz Academic LMS</span>
+<span class="text-outline-variant text-xs hidden md:inline">|</span>
+<p class="font-label text-xs tracking-wide text-slate-500">© 2024 Sinfim.uz. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label text-xs tracking-wide text-slate-500 hover:underline decoration-[#2c694e] transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label text-xs tracking-wide text-slate-500 hover:underline decoration-[#2c694e] transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-label text-xs tracking-wide text-slate-500 hover:underline decoration-[#2c694e] transition-all opacity-80 hover:opacity-100" href="#">Accessibility</a>
+<a class="font-label text-xs tracking-wide text-slate-500 hover:underline decoration-[#2c694e] transition-all opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Hidden Second Phase (Implied State Container for Preview) -->
+<!-- In a real app, this would be swapped or transitioned -->
+<div class="hidden">
+<div class="mb-10">
+<h3 class="font-headline text-3xl font-bold text-on-background mb-3">Security Setup</h3>
+<p class="text-on-surface-variant">As a first-time user, please establish your permanent credentials.</p>
+</div>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block font-label text-xs font-semibold uppercase tracking-wider text-on-surface-variant ml-1">New Secure Password</label>
+<input class="w-full px-4 py-3.5 bg-surface-container-low border-0 rounded-xl ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-secondary" type="password"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label text-xs font-semibold uppercase tracking-wider text-on-surface-variant ml-1">Confirm New Password</label>
+<input class="w-full px-4 py-3.5 bg-surface-container-low border-0 rounded-xl ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-secondary" type="password"/>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low space-y-2">
+<h5 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Requirements</h5>
+<ul class="text-xs space-y-1.5">
+<li class="flex items-center gap-2 text-secondary"><span class="material-symbols-outlined text-sm">check_circle</span> At least 8 characters</li>
+<li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm">circle</span> One numerical character</li>
+<li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm">circle</span> One special symbol</li>
+</ul>
+</div>
+<button class="w-full bg-secondary text-white font-bold py-4 rounded-xl" type="submit">Complete Activation</button>
+</form>
+</div>
+</body></html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#2c694e",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "outline-variant": "#c5c6ce",
+                        "secondary-fixed": "#b1f0ce",
+                        "background": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#091b37",
+                        "tertiary-container": "#00303e",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#d7e2ff",
+                        "primary": "#041632",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed": "#b9eaff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary": "#001a23",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#4a9dba",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#002114",
+                        "inverse-primary": "#b7c7eb",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#4f5e7e",
+                        "primary-fixed-dim": "#b7c7eb",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#aeeecb",
+                        "on-surface-variant": "#44474d",
+                        "outline": "#75777e",
+                        "on-secondary-container": "#316e52",
+                        "tertiary-fixed-dim": "#81d1f0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-tertiary-fixed": "#001f29",
+                        "on-primary-container": "#8393b5",
+                        "primary-container": "#1b2b48",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Inter', sans-serif;
+            color: #191c1e;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="w-full h-16 sticky top-0 z-40 bg-white/80 backdrop-blur-xl flex justify-between items-center px-8 border-b border-[#c5c6ce]/15 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-xl font-headline font-extrabold text-primary tracking-tight">Sinfim.uz</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#2c694e] font-bold font-inter text-sm transition-opacity hover:opacity-100" href="#">Home</a>
+<a class="text-[#191c1e] font-medium font-inter text-sm opacity-80 hover:opacity-100 hover:text-[#2c694e] transition-opacity" href="#courses">Courses</a>
+<a class="text-[#191c1e] font-medium font-inter text-sm opacity-80 hover:opacity-100 hover:text-[#2c694e] transition-opacity" href="#admissions">Admissions</a>
+<a class="text-[#191c1e] font-medium font-inter text-sm opacity-80 hover:opacity-100 hover:text-[#2c694e] transition-opacity" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#041632] opacity-80 hover:opacity-100">notifications</button>
+<button class="material-symbols-outlined text-[#041632] opacity-80 hover:opacity-100">dark_mode</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/15">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="Close-up portrait of a professional male instructor in a clean academic setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0KcsWbMb2cUc95k4JWg1sJ1p4CoPv5agVNXncIiMDUxG4O_mX1HyyrDNXj5kpshiEo7RsCVEB-9h8kLfr1Y5y1b0AWRXCIbQUKhrH7t1RUzuZ47mp_WbMZO4zgh2NwGL3z6V-0izwf8gOOpkkzhUSu3E5lkjlm_ZIzmlrvet_N9MUp4tjpD7YpCvqdyVjMOfvU2nq1rraCQ6MngXwKkQ5xtISVxeAYrMdQfmcUFlrzcg45HDOk2xPw4fZCoH2k70no92IemU2pgWQ"/>
+</div>
+</div>
+</nav>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative bg-primary overflow-hidden py-24 md:py-32">
+<div class="absolute inset-0 opacity-10">
+<img class="w-full h-full object-cover grayscale" data-alt="abstract architectural view of modern university library with clean lines, soft shadows, and intellectual atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3uQ5XN3wOujNGOEwMy4CUHGWKVeZaCNNTNX_zErDRE84eqnlK-wqNqLXNpvK1B_vGfcXMvvOCpIEztHuExAuUIMyupcmQypU8itK9tlL3RIXCYkdabWPfVlF05KyMyXMSwNkSuM_AMqvDAeN-hIKp5nnrvZGNW9QjtwJ-GUv7UIMVELEPsh5zPWACs4irbHywQ6T4wd72n9Kqu6v8codDlNvD02ynikU2w-hne6cVu0P-drlwhJhhEpcFkWs1IAfu5M9bsnsZLhsH"/>
+</div>
+<div class="max-w-[1440px] mx-auto px-12 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+<div>
+<span class="inline-block bg-secondary/20 text-secondary-fixed font-headline text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full mb-6">
+                        Educational Excellence
+                    </span>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-white leading-tight mb-6">
+                        Architecting the <span class="text-secondary-fixed-dim">Future of Learning</span>
+</h1>
+<p class="text-on-primary-container text-lg max-w-xl mb-8 leading-relaxed font-body">
+                        Welcome to Sinfim.uz Public School Platform. We provide a rigorous, supportive environment designed to empower the next generation of global innovators and deep thinkers.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-secondary hover:bg-on-secondary-container text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-95 flex items-center gap-2" href="#admissions">
+                            Request to Join <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="bg-white/10 backdrop-blur-md text-white border border-white/10 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all" href="#courses">
+                            Browse Courses
+                        </a>
+</div>
+</div>
+<div class="hidden md:block relative">
+<div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5">
+<img class="w-full h-full object-cover" data-alt="student studying intently in a bright modern classroom with floor to ceiling windows and academic equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwttD0ZB7wc9knTyC_VVUXsUMJo_w1auK8m8f3XHngzYro7UpjyCbxNJkFsQFRctMiXgIoUuQmE2UkL9sQkzBRH1OYLGc3ngTZ19JJRJqxcJG487dBIpfkk9ejfYnuPs-hgBBSrMHn38JsiTQ4ELG8Mr-CsVjNixpgByAfHrHMCwp5WXY0FAWAfc0ESD-N4A3Lu3WxRVzOWtGYLX8BmLhvvwBxhEnuGmmxBYEfM0Mu_4VbM8Z5CbMw6UJFe57KXnwrbkkS4Vu1fP3h"/>
+</div>
+<!-- Stats Floating Card -->
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-[200px]">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary text-3xl">verified</span>
+<span class="text-2xl font-headline font-extrabold text-primary">100%</span>
+</div>
+<p class="text-xs font-medium text-outline uppercase tracking-wider">Accredited Excellence</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Search & Grid -->
+<section class="py-24 max-w-[1440px] mx-auto px-12" id="courses">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+<div>
+<h2 class="text-3xl font-headline font-bold text-primary mb-4">Available Courses</h2>
+<p class="text-outline text-md font-body max-w-lg">Explore our diverse curriculum designed by world-class educators to challenge and inspire.</p>
+</div>
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-secondary/50 text-sm font-medium" placeholder="Search by subject or level..." type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Course Card 1 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract visualization of complex physics concepts, neon particles and geometric structures in a dark space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu54vsTrMyRBcaZgyW1wJARt9o0lysSCOTOuV3UaULe6chG2-gH4kDBkVB0Wqt3RtKlucTLgj4b77u5SOe3bG6vDiaAwZh68rXi-SnqA70HnHg0Rw_js-5nPOVqII78tatmOSJzv7eSnLfAtfaSg7pSJ7m1uN6VET5O1wUYeDqjtlpxNuv-pE20Z-gRwbGVanxvlCPhZcP5uiUGyv1MRDNxnvuk-HPLiYC2ZJwi0Y4604RzwI9MlI3FNB07RlnwfSe_f136SHluPyr"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary/90 backdrop-blur text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Advanced</span>
+</div>
+</div>
+<div class="p-6 border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<span class="text-secondary font-headline font-bold text-xs uppercase tracking-tighter">STEM Department</span>
+<span class="flex items-center text-xs font-semibold text-outline"><span class="material-symbols-outlined text-sm mr-1">schedule</span> 12 Weeks</span>
+</div>
+<h3 class="text-xl font-headline font-extrabold text-primary mb-3">Quantum Physics &amp; Theoretical Mechanics</h3>
+<p class="text-sm text-outline-variant font-body mb-6 line-clamp-2">An exploration into subatomic particles and the mathematical foundations of our universe.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex -space-x-2">
+<img class="h-8 w-8 rounded-full border-2 border-white object-cover" data-alt="professor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvCQNuN45VthGCb0eW3HIunuW1tlEOcCh678tpGV1ObUGm5ZS5Kq_wd569IR5oXIXWvG79DRWiGLBGZkwo_pd5aBJ4fDVj29yHJ8S1ju6X97xvTOMkH8dHc-YnhdTmCA_2gdhH46Shi7Yx-NlgCcKyXZYeOEcUzmTTz5DYClpIr4ehPnyE1m9Y1lXHlvPWrdF5ILmQ9N0NAs-Er17X703Byv9750plz5Buegy_GYQgVepSGCq88A-LGt_38Jqf1kIrePYj7chzaU1l"/>
+<img class="h-8 w-8 rounded-full border-2 border-white object-cover" data-alt="professor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD6420GfJgLlu_gzJ1ISXdPDG9TpjIoE8awjr9D0XlLgeK--8y9v7flqfgkwYBmAXyBpRt-HUcAAiBJlOYwpDINdQekblwyNfbS6NSOPN18_QVmY7G40colwJfGfoUA0Zp3qcyIq4vvdL72e4IfJxzUJ0pdwM5vRaLF3Rq_ZrUv8YR6fa0KDekVdPxJ9-0hMRuHV-bm9YBUJwvJVfjdhvwhdBrOBI57GMNuXMB-tLTlTPI-wxOcKQn2uqpx6zoYdhRN7qtuZEieHTP"/>
+</div>
+<button class="text-secondary font-bold text-sm flex items-center hover:gap-2 transition-all">Details <span class="material-symbols-outlined text-sm ml-1">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Classic library with tall mahogany shelves filled with ancient leather-bound books and warm brass lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmwSdoD54KPwXmf2rG3mni0tt30UuMcpqF1t1LyW9P3QnUkAkoCY9qRzu7jNCcxoBEnK1V53iV-Fn-svXK6XTFkGWikeXqGyZxQcB-lIPp1GhhRU7clt0jcVqFN9omLZVmPjlKzaLj6Rv4WGdhJBRbbJR0nWq104qIklexQhVVkkR4EnCLRsdT5ReZS5--hXsofcE1VIBw_KSwkiDLn1a_K-IUbg3E450hHz-sMlxj6xaN3YZfz0oF34K5HNeKoaqKSO6YYhkFQlA7"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary/90 backdrop-blur text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Intermediate</span>
+</div>
+</div>
+<div class="p-6 border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<span class="text-secondary font-headline font-bold text-xs uppercase tracking-tighter">Humanities</span>
+<span class="flex items-center text-xs font-semibold text-outline"><span class="material-symbols-outlined text-sm mr-1">schedule</span> 8 Weeks</span>
+</div>
+<h3 class="text-xl font-headline font-extrabold text-primary mb-3">Modern Literature &amp; Comparative Analysis</h3>
+<p class="text-sm text-outline-variant font-body mb-6 line-clamp-2">Critical examination of post-war literature and its impact on contemporary sociological narratives.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex -space-x-2">
+<img class="h-8 w-8 rounded-full border-2 border-white object-cover" data-alt="professor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjDkq1k_LynqijADXVOE2ZDe64RWXz4umIDwunGgaCNQcSOLM6ksIp-vGGlyAALNm0uJxg8wgH_JtbDnJ1pbMNXJKfj5GPWBze14wGukiv6jQ9dRYW5LCFyqO6-g7nSL99tgD4u0BcvJyn2fxgXdUJM0ah0t7Z1kHmeVx-ewn8GJKNJnHq9ICaUfgGEaXX2YvW7ITa6y160QhTrOF8QXosWc-9fmml1O2GLhuw7AKkxk1UiYdpN6Fm9uMsY2XSlLDxGslF4hUL6n19"/>
+</div>
+<button class="text-secondary font-bold text-sm flex items-center hover:gap-2 transition-all">Details <span class="material-symbols-outlined text-sm ml-1">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Digital circuit board with glowing cyan pathways and high-tech processors representing cybersecurity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMza1t90HgI1dvTIMEKIeBBEEPVFXPz_OJFA5LvYMvGAYx8DKdDLT7cDcBTZqVV55yArGBShTD6rLESEftQr2egHih1IxO5Xs7p_tWfD-OW17faO9F1IpvYDtrXZ7d5NIeSuJZqaWW42uIQphYlCK_2adouttI1EaczvXL8ngp-7lPExBkJoZa-a0Jgy_iCwz80icsN-Ow_fJKKoS2VTLYU169TZMmHFEB19JVvZeAn2wOCS90wl0DFlByrmKhHwBemNzDVoUZUhal"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary/90 backdrop-blur text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Advanced</span>
+</div>
+</div>
+<div class="p-6 border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<span class="text-secondary font-headline font-bold text-xs uppercase tracking-tighter">Computer Science</span>
+<span class="flex items-center text-xs font-semibold text-outline"><span class="material-symbols-outlined text-sm mr-1">schedule</span> 16 Weeks</span>
+</div>
+<h3 class="text-xl font-headline font-extrabold text-primary mb-3">Cybersecurity &amp; Cryptographic Systems</h3>
+<p class="text-sm text-outline-variant font-body mb-6 line-clamp-2">Protecting the digital frontier through ethical hacking and advanced encryption protocols.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex -space-x-2">
+<img class="h-8 w-8 rounded-full border-2 border-white object-cover" data-alt="professor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSqn7tFl8pAeOlvEhlz_CCXRxrpKVEZY9-x7QylVKXOl2AmuliK-sPn54vjhIxQVK-T0XuTUyl7B8cJYDW4u-XvZUCaC8zyyHi9SGgQKXb2YGxLs5bhT3cQSVllubtdvMUEChLX1EbiFErGlpbmu1tgLHXhbJ1UhYIQJ49MFv8VMrPONPul7Co4g4pLd6PFD3pEaK6Vopz9kjNMIP1yas00pLZpfRTst6UEI_OmZCApSXV-Svpr70iqy7BD6OKgjzl_W-pAPHdAJdV"/>
+<img class="h-8 w-8 rounded-full border-2 border-white object-cover" data-alt="professor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWOHGELrb2ARBXRUnx0A9BcTmuPBjrXVOXxB52vgJ-9pCW950EjWb2osB42athdheThWue1fe4Grhj9Qif8tdCumsVyakrxFQqsBqCVaxdy_kNRmqIUgt425ALzLF0E_onrrtZQEYH0Nr8OJOv1EE_vltPMByiPmr3_ewPfpEDRKKz3_lqhZ6N_cVaNTB48gyA1N43dB5KNwUe2_AxF06Wldl3xITFb5OOujZai6ZjcY74d-l9kXvhnzOvQLvAyn_SavyfiC21ndd3"/>
+</div>
+<button class="text-secondary font-bold text-sm flex items-center hover:gap-2 transition-all">Details <span class="material-symbols-outlined text-sm ml-1">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Admissions Lead Form -->
+<section class="bg-surface-container-low py-24" id="admissions">
+<div class="max-w-[1440px] mx-auto px-12 grid lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-6">Join the Next Cohort</h2>
+<p class="text-on-surface-variant text-lg font-body mb-8">Ready to elevate your academic journey? Complete the registration form, and our admissions team will contact you for a personalized consultation within 48 hours.</p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="h-12 w-12 rounded-xl bg-white flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Initial Review</h4>
+<p class="text-sm text-outline">Our committee evaluates previous academic achievements and intent.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-12 w-12 rounded-xl bg-white flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Personal Interview</h4>
+<p class="text-sm text-outline">A one-on-one session to align your goals with our curriculum.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-3xl shadow-xl shadow-primary/5">
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary uppercase tracking-wider">First Name</label>
+<input class="w-full px-4 py-3 bg-surface border-none rounded-xl focus:ring-2 focus:ring-secondary/20 transition-all" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary uppercase tracking-wider">Last Name</label>
+<input class="w-full px-4 py-3 bg-surface border-none rounded-xl focus:ring-2 focus:ring-secondary/20 transition-all" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary uppercase tracking-wider">Email Address</label>
+<input class="w-full px-4 py-3 bg-surface border-none rounded-xl focus:ring-2 focus:ring-secondary/20 transition-all" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary uppercase tracking-wider">Interested Program</label>
+<select class="w-full px-4 py-3 bg-surface border-none rounded-xl focus:ring-2 focus:ring-secondary/20 transition-all appearance-none">
+<option>STEM Research Path</option>
+<option>Global Humanities</option>
+<option>Business &amp; Economics</option>
+<option>Digital Arts &amp; Tech</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary uppercase tracking-wider">Personal Statement (Optional)</label>
+<textarea class="w-full px-4 py-3 bg-surface border-none rounded-xl focus:ring-2 focus:ring-secondary/20 transition-all resize-none" rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary hover:bg-on-secondary-container text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-secondary/20" type="submit">
+                            Submit Application
+                        </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 max-w-[1440px] mx-auto px-12" id="contact">
+<div class="grid md:grid-cols-3 gap-12">
+<div class="col-span-1">
+<h3 class="text-2xl font-headline font-bold text-primary mb-6">Our Location</h3>
+<div class="rounded-2xl overflow-hidden h-64 grayscale opacity-80 hover:grayscale-0 transition-all duration-700 shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Simplified city map view of Tashkent with clean modern architectural markers" data-location="Tashkent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjffpmniUz8w_cW7A4JZMIwLmJNkwfhzSZ68NrBqvI6BEosvEAlRO81FDwODLcFA3uzx190tBew6eniZxeTafQlR705h6MKnunefOk2Hzto1VneATf1kyiB-q3f_8xLLsZbbzgnLZgiCR31sk5gcnqlzn0avx-Iyo0WNcu4NyOXUWirdlYalcZC_EPfNi6tVdUnpea36OH9zqelKofX-fGAM3nj2k2cKDxueMuxYtGF2tLwpCQtRSKlKD4o1SGwvJ03A8IP5phgDHm"/>
+</div>
+</div>
+<div class="col-span-2">
+<div class="grid sm:grid-cols-2 gap-8">
+<div>
+<h4 class="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Direct Contact</h4>
+<p class="text-primary font-bold text-lg mb-2">+998 (71) 200-XX-XX</p>
+<p class="text-outline mb-6">admissions@sinfim.uz</p>
+<h4 class="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Office Hours</h4>
+<p class="text-on-surface-variant text-sm">Mon - Fri: 9:00 AM - 6:00 PM</p>
+<p class="text-on-surface-variant text-sm">Sat: 10:00 AM - 2:00 PM</p>
+</div>
+<div>
+<h4 class="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Follow Our Journey</h4>
+<div class="flex gap-4">
+<a class="h-10 w-10 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="h-10 w-10 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="h-10 w-10 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">play_circle</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#f2f4f6] flex flex-col md:flex-row justify-between items-center px-12 border-t border-[#c5c6ce]/15">
+<div class="mb-6 md:mb-0">
+<span class="font-headline font-bold text-[#041632] text-lg tracking-tight">Sinfim.uz</span>
+<p class="text-[10px] font-inter tracking-wider uppercase text-slate-500 mt-1">© 2024 Sinfim.uz LMS Platform. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">API Documentation</a>
+<a class="font-inter text-xs tracking-wider uppercase text-slate-500 hover:underline hover:text-[#2c694e] transition-opacity duration-300" href="#">Contact</a>
+</div>
+</footer>
+</body></html>
