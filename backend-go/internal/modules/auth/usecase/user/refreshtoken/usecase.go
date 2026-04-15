@@ -15,14 +15,16 @@ import (
 )
 
 type Request struct {
-	RefreshToken string `json:"refresh_token" validate:"required"`
+	RefreshToken string `json:"refreshToken" validate:"required"`
 }
 
 type Response struct {
-	AccessToken           string `json:"access_token"`
-	AccessTokenExpiresAt  string `json:"access_token_expires_at"`
-	RefreshToken          string `json:"refresh_token"`
-	RefreshTokenExpiresAt string `json:"refresh_token_expires_at"`
+	AccessToken           string `json:"accessToken"`
+	AccessTokenExpiresAt  string `json:"accessTokenExpiresAt"`
+	RefreshToken          string `json:"refreshToken"`
+	RefreshTokenExpiresAt string `json:"refreshTokenExpiresAt"`
+	TokenType             string `json:"tokenType"`
+	ExpiresIn             int64  `json:"expiresIn"`
 }
 
 // UseCase implements "refresh-token" user action.
@@ -110,6 +112,8 @@ func (uc *usecase) Execute(ctx context.Context, in *Request) (*Response, error) 
 		AccessTokenExpiresAt:  s.AccessTokenExpiresAt.Format(time.RFC3339),
 		RefreshToken:          s.RefreshToken,
 		RefreshTokenExpiresAt: s.RefreshTokenExpiresAt.Format(time.RFC3339),
+		TokenType:             "Bearer",
+		ExpiresIn:             int64(uc.accessTokenTTL.Seconds()),
 	}, nil
 }
 

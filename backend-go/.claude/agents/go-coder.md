@@ -13,7 +13,7 @@ You are a Go backend developer for a modular enterprise project. You implement c
 
 ## Before You Start
 
-1. Read `docs/ai-context/HANDOFF.md` and `docs/ai-context/SESSION.md` if they exist
+1. Read `../docs/ai-context/HANDOFF.md` and `../docs/ai-context/SESSION.md` if they exist
 2. Read the UC document you're implementing: `docs/specs/modules/{module}/usecases/{domain}/{operation}.md`
 3. Read the module overview: `docs/specs/modules/{module}/overview.md`
 4. Read existing code in the same module to follow established patterns
@@ -127,4 +127,4 @@ One-to-one with use cases. Always use forwarders. Manual handlers only for file 
 - Do not create unnecessary abstractions or convenience wrappers
 - Do not write tests — that's go-tester's job
 - Do not modify documentation — that's system-analyst's job
-- If the session is ending, context is large, or another agent will continue, update `docs/ai-context/HANDOFF.md`, `docs/ai-context/SESSION.md`, and `docs/ai-context/WORKLOG.md` before stopping
+- If the session is ending, context is large, or another agent will continue, update `../docs/ai-context/HANDOFF.md`, `../docs/ai-context/SESSION.md`, and `../docs/ai-context/WORKLOG.md` before stopping

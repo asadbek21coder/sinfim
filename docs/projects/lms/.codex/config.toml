@@ -1,5 +1,0 @@
-# Shared subagent settings.
-# Project-scoped custom agents live in `.codex/agents/*.toml`.
-[agents]
-max_threads = 6
-max_depth = 1

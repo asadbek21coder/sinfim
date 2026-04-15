@@ -35,6 +35,7 @@ import (
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/disableuser"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/enableuser"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/getauthstats"
+	"go-enterprise-blueprint/internal/modules/auth/usecase/user/getme"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/getusers"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/logout"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/refreshtoken"
@@ -109,6 +110,7 @@ func New(
 		),
 		refreshtoken.New(domainContainer, cfg.AccessTokenTTL, cfg.RefreshTokenTTL),
 		logout.New(domainContainer, portalContainer),
+		getme.New(domainContainer),
 		changemypassword.New(domainContainer, portalContainer, cfg.HashingCost),
 
 		// User management

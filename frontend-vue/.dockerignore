@@ -1,0 +1,12 @@
+.git
+.github
+.claude
+.codex
+.vscode
+.env
+.env.*
+node_modules
+dist
+docs
+*.log
+Dockerfile.local

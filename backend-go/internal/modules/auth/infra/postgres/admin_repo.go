@@ -25,6 +25,9 @@ func userFilterFunc(q *bun.SelectQuery, f user.Filter) *bun.SelectQuery {
 	if f.Username != nil {
 		q = q.Where("username = ?", *f.Username)
 	}
+	if f.PhoneNumber != nil {
+		q = q.Where("phone_number = ?", *f.PhoneNumber)
+	}
 	if f.IsActive != nil {
 		q = q.Where("is_active = ?", *f.IsActive)
 	}

@@ -2,14 +2,17 @@ package adminlogin
 
 import (
 	"context"
+	"strings"
+	"time"
+
 	"go-enterprise-blueprint/internal/modules/auth/domain"
+	"go-enterprise-blueprint/internal/modules/auth/domain/rbac"
 	"go-enterprise-blueprint/internal/modules/auth/domain/session"
 	"go-enterprise-blueprint/internal/modules/auth/domain/uow"
 	"go-enterprise-blueprint/internal/modules/auth/domain/user"
 	"go-enterprise-blueprint/internal/portal"
 	"go-enterprise-blueprint/internal/portal/audit"
 	"go-enterprise-blueprint/internal/portal/auth"
-	"time"
 
 	"github.com/code19m/errx"
 	"github.com/rise-and-shine/pkg/hasher"
@@ -29,15 +32,29 @@ var (
 )
 
 type Request struct {
-	Username string `json:"username" validate:"required"`
-	Password string `json:"password" validate:"required" mask:"true"`
+	PhoneNumber string `json:"phone_number" validate:"required"`
+	Password    string `json:"password"     validate:"required" mask:"true"`
 }
 
 type Response struct {
-	AccessToken           string `json:"access_token"`
-	AccessTokenExpiresAt  string `json:"access_token_expires_at"`
-	RefreshToken          string `json:"refresh_token"`
-	RefreshTokenExpiresAt string `json:"refresh_token_expires_at"`
+	AccessToken           string  `json:"accessToken"`
+	AccessTokenExpiresAt  string  `json:"accessTokenExpiresAt"`
+	RefreshToken          string  `json:"refreshToken"`
+	RefreshTokenExpiresAt string  `json:"refreshTokenExpiresAt"`
+	TokenType             string  `json:"tokenType"`
+	ExpiresIn             int64   `json:"expiresIn"`
+	User                  UserDTO `json:"user"`
+}
+
+type UserDTO struct {
+	ID                 string  `json:"id"`
+	PhoneNumber        string  `json:"phoneNumber"`
+	FullName           string  `json:"fullName"`
+	Role               string  `json:"role"`
+	OrganizationID     *string `json:"organizationId"`
+	IsActive           bool    `json:"isActive"`
+	MustChangePassword bool    `json:"mustChangePassword"`
+	CreatedAt          string  `json:"createdAt"`
 }
 
 // UseCase implements "admin-login" user action.
@@ -71,12 +88,17 @@ type usecase struct {
 func (uc *usecase) OperationID() string { return "admin-login" }
 
 func (uc *usecase) Execute(ctx context.Context, in *Request) (*Response, error) {
-	// Find user by username
+	phoneNumber := normalizePhone(in.PhoneNumber)
+
+	// Find user by phone number. Username remains as a compatibility fallback for old blueprint data.
 	u, err := uc.domainContainer.UserRepo().Get(ctx, user.Filter{
-		Username: &in.Username,
+		PhoneNumber: &phoneNumber,
 	})
 	if errx.IsCodeIn(err, user.CodeUserNotFound) {
-		return nil, errx.Wrap(errIncorrectCreds, errx.WithDetails(errx.D{"cause": "username"}))
+		u, err = uc.domainContainer.UserRepo().Get(ctx, user.Filter{Username: &phoneNumber})
+	}
+	if errx.IsCodeIn(err, user.CodeUserNotFound) {
+		return nil, errx.Wrap(errIncorrectCreds, errx.WithDetails(errx.D{"cause": "phone_number"}))
 	}
 	if err != nil {
 		return nil, errx.Wrap(err)
@@ -148,12 +170,68 @@ func (uc *usecase) Execute(ctx context.Context, in *Request) (*Response, error) 
 		return nil, errx.Wrap(err)
 	}
 
+	userDTO, err := uc.buildUserDTO(ctx, u)
+	if err != nil {
+		return nil, errx.Wrap(err)
+	}
+
 	return &Response{
 		AccessToken:           s.AccessToken,
 		AccessTokenExpiresAt:  s.AccessTokenExpiresAt.Format(time.RFC3339),
 		RefreshToken:          s.RefreshToken,
 		RefreshTokenExpiresAt: s.RefreshTokenExpiresAt.Format(time.RFC3339),
+		TokenType:             "Bearer",
+		ExpiresIn:             int64(uc.accessTokenTTL.Seconds()),
+		User:                  userDTO,
 	}, nil
+}
+
+func (uc *usecase) buildUserDTO(ctx context.Context, u *user.User) (UserDTO, error) {
+	role := "STUDENT"
+	userRoles, err := uc.domainContainer.UserRoleRepo().List(ctx, rbac.UserRoleFilter{UserID: &u.ID})
+	if err != nil {
+		return UserDTO{}, errx.Wrap(err)
+	}
+	if len(userRoles) > 0 {
+		roleIDs := make([]int64, 0, len(userRoles))
+		for _, userRole := range userRoles {
+			roleIDs = append(roleIDs, userRole.RoleID)
+		}
+		roles, roleErr := uc.domainContainer.RoleRepo().List(ctx, rbac.RoleFilter{IDs: roleIDs})
+		if roleErr != nil {
+			return UserDTO{}, errx.Wrap(roleErr)
+		}
+		if len(roles) > 0 {
+			role = roles[0].Name
+		}
+	}
+
+	phoneNumber := ""
+	if u.PhoneNumber != nil {
+		phoneNumber = *u.PhoneNumber
+	} else if u.Username != nil {
+		phoneNumber = *u.Username
+	}
+	fullName := ""
+	if u.FullName != nil {
+		fullName = *u.FullName
+	}
+
+	return UserDTO{
+		ID:                 u.ID,
+		PhoneNumber:        phoneNumber,
+		FullName:           fullName,
+		Role:               role,
+		OrganizationID:     nil,
+		IsActive:           u.IsActive,
+		MustChangePassword: u.MustChangePassword,
+		CreatedAt:          u.CreatedAt.Format(time.RFC3339),
+	}, nil
+}
+
+func normalizePhone(value string) string {
+	replacer := strings.NewReplacer(" ", "", "-", "", "(", "", ")", "")
+	return replacer.Replace(value)
 }
 
 func (uc *usecase) deleteExceededSessions(ctx context.Context, u *user.User, uow uow.UnitOfWork) error {

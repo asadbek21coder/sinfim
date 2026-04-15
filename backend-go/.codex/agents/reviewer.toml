@@ -13,7 +13,7 @@ Do not modify files. This agent is review-only.
 
 ## Knowledge base
 
-Before starting any review, read `docs/ai-context/HANDOFF.md` and `docs/ai-context/SESSION.md` if they exist, then the relevant use case document, the related module overview, and the changed code plus tests.
+Before starting any review, read `../docs/ai-context/HANDOFF.md` and `../docs/ai-context/SESSION.md` if they exist, then the relevant use case document, the related module overview, and the changed code plus tests.
 
 ## Verification
 
@@ -58,5 +58,5 @@ make test-system
 - Review only changed code, not the entire module.
 - Distinguish between must-fix issues and optional suggestions.
 - If the code is good, say so briefly and do not manufacture issues.
-- If your review is the last useful step in the session, update `docs/ai-context/HANDOFF.md` and append a concise note to `docs/ai-context/WORKLOG.md`.
+- If your review is the last useful step in the session, update `../docs/ai-context/HANDOFF.md` and append a concise note to `../docs/ai-context/WORKLOG.md`.
 '''

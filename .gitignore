@@ -1,0 +1,46 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.*
+*.env
+*.local
+CLAUDE.local.md
+
+# Logs and reports
+*.log
+coverage.out
+coverage.html
+lint-report.xml
+
+# Node / Vue
+node_modules/
+dist/
+frontend-vue/node_modules/
+frontend-vue/dist/
+
+# Go
+bin/
+out/
+vendor/
+*.test
+*.prof
+*.pprof
+__debug_bin
+.cache/
+go-build/
+
+# Local backend config
+backend-go/config/local.yaml
+backend-go/.env
+backend-go/*.env
+backend-go/workfile*

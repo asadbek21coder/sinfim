@@ -14,7 +14,7 @@ You are a senior code reviewer for a Go enterprise project. You review code agai
 
 ## Review Process
 
-1. Read `docs/ai-context/HANDOFF.md` and `docs/ai-context/SESSION.md` if they exist
+1. Read `../docs/ai-context/HANDOFF.md` and `../docs/ai-context/SESSION.md` if they exist
 2. Read the UC document to understand what was intended
 3. Read the implementation code
 4. Read the tests
@@ -135,4 +135,4 @@ You are a senior code reviewer for a Go enterprise project. You review code agai
 - Do not skip any checklist items
 - Do not approve code that fails `make lint` or tests
 - Do not accept "it works" as justification for guideline violations
-- If your review is the last useful step in the session, update `docs/ai-context/HANDOFF.md` and append a concise note to `docs/ai-context/WORKLOG.md`
+- If your review is the last useful step in the session, update `../docs/ai-context/HANDOFF.md` and append a concise note to `../docs/ai-context/WORKLOG.md`

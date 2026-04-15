@@ -42,6 +42,8 @@ func (c *Controller) initRoutes(r fiber.Router) {
 	// Authenticated (no specific permission required)
 	v1Auth := v1.Group("", auth.NewAuthMiddleware(c.authPortal))
 	v1Auth.Post("/logout", forward.ToUserAction(c.usecaseContainer.Logout()))
+	v1Auth.Get("/me", forward.ToUserAction(c.usecaseContainer.GetMe()))
+	v1Auth.Get("/get-me", forward.ToUserAction(c.usecaseContainer.GetMe()))
 	v1Auth.Post("/change-my-password", forward.ToUserAction(c.usecaseContainer.ChangeMyPassword()))
 	v1Auth.Get("/get-my-sessions", forward.ToUserAction(c.usecaseContainer.GetMySessions()))
 	v1Auth.Post("/delete-my-session", forward.ToUserAction(c.usecaseContainer.DeleteMySession()))

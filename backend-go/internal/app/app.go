@@ -3,7 +3,10 @@ package app
 import (
 	"go-enterprise-blueprint/internal/modules/audit"
 	"go-enterprise-blueprint/internal/modules/auth"
+	"go-enterprise-blueprint/internal/modules/catalog"
+	"go-enterprise-blueprint/internal/modules/classroom"
 	"go-enterprise-blueprint/internal/modules/filevault"
+	"go-enterprise-blueprint/internal/modules/organization"
 	"go-enterprise-blueprint/internal/modules/platform"
 
 	"github.com/rise-and-shine/pkg/cfgloader"
@@ -41,6 +44,12 @@ type Config struct {
 
 	Filevault filevault.Config `yaml:"filevault"`
 
+	Catalog catalog.Config `yaml:"catalog"`
+
+	Classroom classroom.Config `yaml:"classroom"`
+
+	Organization organization.Config `yaml:"organization"`
+
 	Platform platform.Config `yaml:"platform"`
 }
 
@@ -52,10 +61,13 @@ type app struct {
 
 	httpServer *server.HTTPServer
 
-	auth      *auth.Module
-	audit     *audit.Module
-	filevault *filevault.Module
-	platform  *platform.Module
+	auth         *auth.Module
+	audit        *audit.Module
+	filevault    *filevault.Module
+	catalog      *catalog.Module
+	classroom    *classroom.Module
+	organization *organization.Module
+	platform     *platform.Module
 }
 
 func newApp() *app {

@@ -1,0 +1,54 @@
+service:
+  name: sinfim
+  version: v0.1.0-docker-local
+
+logger:
+  disable: false
+  level: debug
+  encoding: pretty
+
+tracing:
+  exporter_host: jaeger
+  exporter_port: 4317
+
+alert:
+  provider: noop
+  telegram_bot_token: token
+  telegram_chat_ids: []
+
+postgres:
+  verbose: true
+  host: postgres
+  port: 5432
+  user: postgres
+  password: postgres
+  database: blueprint
+
+kafka_broker:
+  brokers: kafka:9092
+
+http_server:
+  host: 0.0.0.0
+  port: 9876
+
+auth:
+  access_token_ttl: 24h
+  refresh_token_ttl: 168h
+  max_active_sessions: 5
+  worker_poll_interval: 1s
+  hashing_cost: 10
+
+filevault:
+  max_file_size_mb: 10
+  minio:
+    endpoint: minio:9000
+    access_key: minioadmin
+    secret_key: minioadmin
+    bucket: blueprint
+
+audit:
+  worker_poll_interval: 1s
+
+platform:
+  worker_poll_interval: 1s
+  alert_schema: alert

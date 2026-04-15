@@ -7,8 +7,8 @@ Read these to gain project context:
     - {PROJECT_ROOT}/README.md
     - {PROJECT_ROOT}/docs/specs/modules/{module}/overview.md
     - {PROJECT_ROOT}/docs/specs/modules/{module}/usecases/{domain}/{operation}.md
-    - {PROJECT_ROOT}/docs/ai-context/HANDOFF.md
-    - {PROJECT_ROOT}/docs/ai-context/SESSION.md
+    - {PROJECT_ROOT}/../docs/ai-context/HANDOFF.md
+    - {PROJECT_ROOT}/../docs/ai-context/SESSION.md
 
 ## Commands
 

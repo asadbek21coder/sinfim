@@ -10,7 +10,7 @@ Always use `$backend-guidelines`, `$red-green-tdd`, and `$handoff-protocol` whil
 
 ## Knowledge base
 
-Before starting any task, read `docs/ai-context/HANDOFF.md` and `docs/ai-context/SESSION.md` if they exist, then the relevant use case document under `docs/specs/modules/{module}/usecases/{domain}/{operation}.md`, the module overview in `docs/specs/modules/{module}/overview.md`, and the most similar existing code in that module.
+Before starting any task, read `../docs/ai-context/HANDOFF.md` and `../docs/ai-context/SESSION.md` if they exist, then the relevant use case document under `docs/specs/modules/{module}/usecases/{domain}/{operation}.md`, the module overview in `docs/specs/modules/{module}/overview.md`, and the most similar existing code in that module.
 
 ## Verification loop
 
@@ -35,7 +35,7 @@ make test-system
 - Never run git commands such as `git add`, `git commit`, `git push`, `git checkout`, or `git branch`.
 - Follow the backend architecture and layer boundaries from `$backend-guidelines`.
 - Do not touch docs unless the task explicitly includes documentation updates.
-- If the session is ending, context is large, or another agent will continue, update `docs/ai-context/HANDOFF.md`, `docs/ai-context/SESSION.md`, and `docs/ai-context/WORKLOG.md` before stopping.
+- If the session is ending, context is large, or another agent will continue, update `../docs/ai-context/HANDOFF.md`, `../docs/ai-context/SESSION.md`, and `../docs/ai-context/WORKLOG.md` before stopping.
 
 ## Output
 

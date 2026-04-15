@@ -20,8 +20,11 @@ type User struct {
 	ID string `json:"id" bun:"id,pk"`
 
 	Username     *string `json:"username"`
+	PhoneNumber  *string `json:"phone_number"`
+	FullName     *string `json:"full_name"`
 	PasswordHash *string `json:"-"`
 
-	IsActive     bool       `json:"is_active"`
-	LastActiveAt *time.Time `json:"last_active_at"`
+	IsActive           bool       `json:"is_active"`
+	MustChangePassword bool       `json:"must_change_password"`
+	LastActiveAt       *time.Time `json:"last_active_at"`
 }

@@ -1,0 +1,8 @@
+# Shared root Codex settings for the Sinfim.uz workspace.
+#
+# Stack-specific agents live in:
+# - backend-go/.codex/agents/
+# - frontend-vue/.codex/agents/
+[agents]
+max_threads = 6
+max_depth = 1

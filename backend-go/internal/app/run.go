@@ -4,7 +4,10 @@ import (
 	"go-enterprise-blueprint/i18n"
 	"go-enterprise-blueprint/internal/modules/audit"
 	"go-enterprise-blueprint/internal/modules/auth"
+	"go-enterprise-blueprint/internal/modules/catalog"
+	"go-enterprise-blueprint/internal/modules/classroom"
 	"go-enterprise-blueprint/internal/modules/filevault"
+	"go-enterprise-blueprint/internal/modules/organization"
 	"go-enterprise-blueprint/internal/modules/platform"
 	"go-enterprise-blueprint/internal/portal"
 	"go-enterprise-blueprint/pkg/baseserver"
@@ -153,6 +156,24 @@ func (a *app) initModules() error {
 	}
 
 	// Esign
+
+	// Catalog
+	a.catalog, err = catalog.New(a.cfg.Catalog, a.dbConn, portalContainer.Auth(), a.httpServer)
+	if err != nil {
+		return errx.Wrap(err)
+	}
+
+	// Classroom
+	a.classroom, err = classroom.New(a.cfg.Classroom, a.dbConn, portalContainer.Auth(), a.httpServer)
+	if err != nil {
+		return errx.Wrap(err)
+	}
+
+	// Organization
+	a.organization, err = organization.New(a.cfg.Organization, a.dbConn, portalContainer.Auth(), a.httpServer)
+	if err != nil {
+		return errx.Wrap(err)
+	}
 
 	// Platform
 	a.platform, err = platform.New(

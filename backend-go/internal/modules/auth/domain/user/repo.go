@@ -6,9 +6,10 @@ import (
 )
 
 type Filter struct {
-	ID       *string
-	Username *string
-	IsActive *bool
+	ID          *string
+	Username    *string
+	PhoneNumber *string
+	IsActive    *bool
 
 	Limit  *int
 	Offset *int

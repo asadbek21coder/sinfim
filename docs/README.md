@@ -1,42 +1,42 @@
-# Project Builder
+# Sinfim.uz Docs
 
-AI agent'larla solo/iki kişilik geliştirme için eksiksiz sistem.
-Startup fikrinden veya outsource projeden lansmana.
+Bu klasor Sinfim.uz urun, tasarim, teknik karar ve AI-agent calisma hafizasinin ana merkezidir.
 
-**Başlamak için:** `new-project-template/kickoff.md`'yi yeni projeye kopyala ve üstten aşağı işaretle.
+## Klasor Haritasi
 
----
-
-## Dosya Haritası
-
-```
-project-builder/
-│
-├── roadmap.md                          ← Genel akış, neden bu sıra
-│
-├── templates/                          ← Doldurulacak şablonlar
-│   ├── startup-idea.md                 ← Fikir → problem, persona, varsayım, scope
-│   ├── ux-doc.md                       ← Ekranlar, akışlar, state'ler
-│   ├── tech-doc.md                     ← Modüller, SQL, API contract, UC listesi
-│   ├── ui-prompts.md                   ← AI'a verilecek UI prompt şablonları
-│   ├── dev-kickoff.md                  ← Blueprint kurulumu, agent pipeline, sprint yapısı
-│   └── outsource-discovery.md          ← Client'tan ne alınır, hangi sorular sorulur
-│
-└── new-project-template/               ← Her yeni projede kopyalanacak dosyalar
-    ├── kickoff.md                      ← BURADAN BAŞLA: adım adım görev listesi (👤/🤖)
-    ├── CLAUDE.md                       ← AI context — her session'da okunur
-    ├── partner.md                      ← Ortak için: sprint durumu, bekleyen kararlar
+```text
+docs/
+  product/      Urun fikri, UX, teknik kararlar, implementation plan
+  specs/        Modul/use-case bazli detay sozlesmeleri
+  design/       Stitch AI ciktisi ve gorsel referanslar
+  prompts/      UI/AI promptlari
+  ai-context/   Codex/Claude ortak session, handoff ve worklog dosyalari
+  templates/    Blueprint/project-builder'dan kalan yeniden kullanilabilir sablonlar
 ```
 
----
+## En Once Okunacak Dosyalar
 
-## Yeni Proje Açarken
+- `docs/product/brand-constants.md`
+- `docs/product/startup-idea.md`
+- `docs/product/ux-doc.md`
+- `docs/product/tech-doc.md`
+- `docs/product/implementation-plan.md`
+- `docs/product/local-development.md`
+- `docs/ai-context/SESSION.md`
+- `docs/ai-context/HANDOFF.md`
 
-```bash
-# new-project-template içindeki dosyaları projeye kopyala
-cp blueprints/project-builder/new-project-template/kickoff.md  ./kickoff.md
-cp blueprints/project-builder/new-project-template/CLAUDE.md   ./CLAUDE.md
-cp blueprints/project-builder/new-project-template/partner.md  ./partner.md
-```
+## Tasarim Referansi
 
-Sonra `kickoff.md`'yi aç ve üstten işaretlemeye başla.
+Stitch AI ciktisi `docs/design/sinfim-design/` altindadir.
+
+Bu ciktidaki HTML dosyalari production koda birebir kopyalanmayacak. Screenshot, layout, component hiyerarsisi, spacing ve genel tasarim dili icin referans alinacak.
+
+Canonical marka karari:
+
+- Platform adi: `Sinfim.uz`
+- Domain: `sinfim.uz`
+- Organization URL: `sinfim.uz/{school-slug}`
+
+## Implementation Plani
+
+Ana uygulama sirasi `docs/product/implementation-plan.md` icindedir. Her step frontend ve backend'i birlikte ele alir ve manuel test edilebilir bir urun parcasi olarak tamamlanir.

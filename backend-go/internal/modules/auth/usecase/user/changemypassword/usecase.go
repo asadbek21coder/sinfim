@@ -68,6 +68,7 @@ func (uc *usecase) Execute(ctx context.Context, in *Request) (*Response, error) 
 		return nil, errx.Wrap(err)
 	}
 	u.PasswordHash = &passwordHash
+	u.MustChangePassword = false
 
 	// Start UOW
 	uow, err := uc.domainContainer.UOWFactory().NewUOW(ctx)

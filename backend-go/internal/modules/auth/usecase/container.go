@@ -24,6 +24,7 @@ import (
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/disableuser"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/enableuser"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/getauthstats"
+	"go-enterprise-blueprint/internal/modules/auth/usecase/user/getme"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/getusers"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/logout"
 	"go-enterprise-blueprint/internal/modules/auth/usecase/user/refreshtoken"
@@ -35,6 +36,7 @@ type Container struct {
 	adminLogin       adminlogin.UseCase
 	refreshToken     refreshtoken.UseCase
 	logout           logout.UseCase
+	getMe            getme.UseCase
 	changeMyPassword changemypassword.UseCase
 
 	// User management
@@ -73,6 +75,7 @@ func NewContainer(
 	adminLogin adminlogin.UseCase,
 	refreshToken refreshtoken.UseCase,
 	logout logout.UseCase,
+	getMe getme.UseCase,
 	changeMyPassword changemypassword.UseCase,
 	createSuperadmin createsuperadmin.UseCase,
 	getUsers getusers.UseCase,
@@ -102,6 +105,7 @@ func NewContainer(
 		adminLogin:           adminLogin,
 		refreshToken:         refreshToken,
 		logout:               logout,
+		getMe:                getMe,
 		changeMyPassword:     changeMyPassword,
 		createSuperadmin:     createSuperadmin,
 		getUsers:             getUsers,
@@ -134,6 +138,7 @@ func NewContainer(
 func (c *Container) AdminLogin() adminlogin.UseCase             { return c.adminLogin }
 func (c *Container) RefreshToken() refreshtoken.UseCase         { return c.refreshToken }
 func (c *Container) Logout() logout.UseCase                     { return c.logout }
+func (c *Container) GetMe() getme.UseCase                       { return c.getMe }
 func (c *Container) ChangeMyPassword() changemypassword.UseCase { return c.changeMyPassword }
 
 // --- User management ---

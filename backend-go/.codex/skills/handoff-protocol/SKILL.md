@@ -13,15 +13,15 @@ The repository is the source of truth for active work. Do not rely on chat histo
 
 ## Files
 
-- `docs/ai-context/SESSION.md`
-- `docs/ai-context/WORKLOG.md`
-- `docs/ai-context/HANDOFF.md`
+- `../docs/ai-context/SESSION.md`
+- `../docs/ai-context/WORKLOG.md`
+- `../docs/ai-context/HANDOFF.md`
 
 ## At Task Start
 
-If `docs/ai-context/HANDOFF.md` exists, read it first.
+If `../docs/ai-context/HANDOFF.md` exists, read it first.
 
-Then read `docs/ai-context/SESSION.md` if the task looks ongoing or multi-step.
+Then read `../docs/ai-context/SESSION.md` if the task looks ongoing or multi-step.
 
 Use these files to recover:
 
