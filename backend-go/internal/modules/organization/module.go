@@ -8,6 +8,8 @@ import (
 	"go-enterprise-blueprint/internal/modules/organization/usecase/createlead"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/createorganization"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/createschoolrequest"
+	"go-enterprise-blueprint/internal/modules/organization/usecase/getdemoaccess"
+	"go-enterprise-blueprint/internal/modules/organization/usecase/getownerdashboard"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/getpublicschoolpage"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/listleads"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/listmyworkspaces"
@@ -39,7 +41,9 @@ func New(cfg Config, dbConn *bun.DB, authPortal portalauth.Portal, httpServer *s
 		createorganization.New(dbConn, domainContainer, cfg.HashingCost),
 		createlead.New(domainContainer),
 		createschoolrequest.New(domainContainer),
+		getdemoaccess.New(dbConn, cfg.HashingCost),
 		getpublicschoolpage.New(domainContainer),
+		getownerdashboard.New(dbConn),
 		listleads.New(domainContainer),
 		listmyworkspaces.New(domainContainer),
 		listschoolrequests.New(domainContainer),

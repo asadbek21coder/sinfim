@@ -7,6 +7,8 @@ import (
 	"go-enterprise-blueprint/internal/modules/catalog"
 	"go-enterprise-blueprint/internal/modules/classroom"
 	"go-enterprise-blueprint/internal/modules/filevault"
+	"go-enterprise-blueprint/internal/modules/homework"
+	"go-enterprise-blueprint/internal/modules/learning"
 	"go-enterprise-blueprint/internal/modules/organization"
 	"go-enterprise-blueprint/internal/modules/platform"
 	"go-enterprise-blueprint/internal/portal"
@@ -165,6 +167,18 @@ func (a *app) initModules() error {
 
 	// Classroom
 	a.classroom, err = classroom.New(a.cfg.Classroom, a.dbConn, portalContainer.Auth(), a.httpServer)
+	if err != nil {
+		return errx.Wrap(err)
+	}
+
+	// Learning
+	a.learning, err = learning.New(a.cfg.Learning, a.dbConn, portalContainer.Auth(), a.httpServer)
+	if err != nil {
+		return errx.Wrap(err)
+	}
+
+	// Homework
+	a.homework, err = homework.New(a.cfg.Homework, a.dbConn, portalContainer.Auth(), a.httpServer)
 	if err != nil {
 		return errx.Wrap(err)
 	}

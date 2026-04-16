@@ -263,21 +263,24 @@ Bitis kriteri:
 
 Amac: Kurs icine dersler, Telegram stream referansi ve PDF/material eklenir.
 
+Durum: tamamlandi. `go test ./...`, `npm run build` ve local API smoke gecti. MVP'de material upload yerine URL/file metadata saklanir; MinIO/filevault upload sonraki dosya polish adimina birakildi.
+
 Backend:
 
-- `catalog.lessons`, `catalog.lesson_videos`, `catalog.lesson_materials` migration'lari.
-- Lesson create/update/reorder/publish use case'leri.
-- Telegram stream ref saklama.
-- File/material metadata saklama; MVP'de MinIO/filevault ile upload veya URL metadata karari uygulanir.
-- Publish day/order kurallari.
+- `catalog.lessons`, `catalog.lesson_videos`, `catalog.lesson_materials` migration'lari. Tamamlandi.
+- Lesson create/update/list/detail use case'leri. Tamamlandi.
+- Telegram stream ref saklama. Tamamlandi: provider, stream ref, channel/message id, embed URL metadata.
+- File/material metadata saklama. Tamamlandi: URL veya future filevault id metadata.
+- Publish day/order kurallari. Tamamlandi: order number ve publish day alanlari eklendi; student availability hesaplamasi Step 8'de uygulanacak.
 
 Frontend:
 
-- Lesson editor ekranı.
-- Ders listesi, siralama ve status UI.
-- Video reference formu.
-- Material/PDF ekleme UI.
-- Publish day veya yayin sirasi alanlari.
+- Course detail icinde lesson list/create. Tamamlandi: `/app/courses/:courseId`.
+- Lesson editor ekranı. Tamamlandi: `/app/lessons/:lessonId/edit`.
+- Ders listesi, siralama ve status UI. Tamamlandi.
+- Video reference formu. Tamamlandi.
+- Material/PDF link metadata ekleme UI. Tamamlandi.
+- Publish day veya yayin sirasi alanlari. Tamamlandi.
 
 Manual test:
 
@@ -285,7 +288,7 @@ Manual test:
 - Telegram stream referansi girilir.
 - PDF/material eklenir.
 - Ders draft/published yapilir.
-- Class start date'e gore student tarafinda kilitli/acik gorunur.
+- Class start date'e gore student tarafinda kilitli/acik gorunmesi Step 8'de learning endpoint ile uygulanir.
 
 Bitis kriteri:
 
@@ -295,20 +298,22 @@ Bitis kriteri:
 
 Amac: Ogrenci kendi dashboard'unda aktif dersleri gorur, ders detayini acip izler.
 
+Durum: tamamlandi. `go test ./...`, `npm run build` ve local API smoke gecti. Student dashboard, lesson detail, publish/access kilidi ve lesson completion MVP akisi calisir durumda.
+
 Backend:
 
-- Learning dashboard read model endpoint'i.
-- Lesson detail student endpoint'i.
-- Access check: class membership + active access + publish rule.
-- Lesson completion endpoint'i.
+- Learning dashboard read model endpoint'i. Tamamlandi: `GET /api/v1/learning/get-student-dashboard`.
+- Lesson detail student endpoint'i. Tamamlandi: `GET /api/v1/learning/get-lesson-detail`.
+- Access check: class membership + active access + publish rule. Tamamlandi.
+- Lesson completion endpoint'i. Tamamlandi: `POST /api/v1/learning/mark-lesson-completed`.
 
 Frontend:
 
-- Student dashboard.
-- Student lesson detail.
-- Video player container.
-- Material list/download/open action.
-- Lesson completed action ve progress state.
+- Student dashboard. Tamamlandi: `/learn/dashboard`.
+- Student lesson detail. Tamamlandi: `/learn/lessons/{lessonId}`.
+- Video player container. Tamamlandi: Telegram/embed URL metadata ile MVP container.
+- Material list/download/open action. Tamamlandi.
+- Lesson completed action ve progress state. Tamamlandi.
 
 Manual test:
 
@@ -326,21 +331,23 @@ Bitis kriteri:
 
 Amac: Teacher/owner ders icin odev tanimlar; ogrenci yazili/dosya/audio/quiz teslim eder.
 
+Durum: tamamlandi. `go test ./...`, `npm run build` ve local API smoke gecti. Lesson editor icinde homework definition; student lesson detail icinde text/file/audio URL ve quiz submission MVP akisi calisir durumda. Mentor review Step 10'da kalir.
+
 Backend:
 
-- `homework.homework_definitions`, `homework.submissions`, quiz tablolarinin MVP migration'i.
-- Homework create/update/list use case'leri.
-- Submission create use case'i.
-- Submission type: text, file/photo, audio, quiz.
-- Quiz automatic scoring MVP.
+- `homework.homework_definitions`, `homework.submissions`, quiz tablolarinin MVP migration'i. Tamamlandi: `homework.definitions`, `quiz_questions`, `quiz_options`, `submissions`, `quiz_answers`.
+- Homework create/update/list use case'leri. Tamamlandi: `POST /api/v1/homework/save-definition`, `GET /api/v1/homework/get-lesson-homework`.
+- Submission create use case'i. Tamamlandi: `POST /api/v1/homework/submit-homework`.
+- Submission type: text, file/photo, audio, quiz. Tamamlandi: file/photo/audio MVP'de URL olarak saklanir.
+- Quiz automatic scoring MVP. Tamamlandi: correct option points toplanir, quiz submission `reviewed` ve `auto_scored=true` olur.
 
 Frontend:
 
-- Lesson editor icinde homework block.
-- Student lesson detail icinde homework submission UI.
-- Text answer, file/photo upload placeholder veya filevault upload.
-- Audio answer icin MVP kararina gore file upload UI.
-- Quiz UI.
+- Lesson editor icinde homework block. Tamamlandi.
+- Student lesson detail icinde homework submission UI. Tamamlandi.
+- Text answer, file/photo upload placeholder veya filevault upload. Tamamlandi: URL placeholder ile.
+- Audio answer icin MVP kararina gore file upload UI. Tamamlandi: URL placeholder ile.
+- Quiz UI. Tamamlandi.
 
 Manual test:
 
@@ -358,20 +365,22 @@ Bitis kriteri:
 
 Amac: Mentor bekleyen odevleri gorur, feedback ve puan verir.
 
+Durum: tamamlandi. `go test ./...`, `npm run build` ve local API smoke gecti. Review queue, submission detail, feedback/score kaydi ve student result display calisir durumda.
+
 Backend:
 
-- Mentor review list endpoint'i.
-- Submission detail endpoint'i.
-- Review submit endpoint'i: status, score, feedback.
-- Mentor permission: sadece atandigi class/group submissions.
-- Student result endpoint'i.
+- Mentor review list endpoint'i. Tamamlandi: `GET /api/v1/homework/list-review-submissions`.
+- Submission detail endpoint'i. Tamamlandi: `GET /api/v1/homework/get-review-submission`.
+- Review submit endpoint'i: status, score, feedback. Tamamlandi: `POST /api/v1/homework/review-submission`.
+- Mentor permission: sadece atandigi class/group submissions. Tamamlandi; owner/teacher organization icinde, mentor sadece assigned class icinde gorur.
+- Student result endpoint'i. Tamamlandi: `GET /api/v1/homework/get-student-homework` feedback/score/review status doner.
 
 Frontend:
 
-- Homework review inbox.
-- Submission detail paneli.
-- Feedback, score, approve/revision state.
-- Student tarafinda review sonucunu gosterme.
+- Homework review inbox. Tamamlandi: `/app/homework/review`.
+- Submission detail paneli. Tamamlandi.
+- Feedback, score, approve/revision state. Tamamlandi.
+- Student tarafinda review sonucunu gosterme. Tamamlandi.
 
 Manual test:
 
@@ -389,19 +398,21 @@ Bitis kriteri:
 
 Amac: Okul sahibi kurs, sinif, access, lead, progress ve bekleyen odev durumunu tek yerden gorur.
 
+Durum: tamamlandi. `go test ./...`, `npm run build` ve local API smoke gecti. Owner dashboard aggregate endpoint'i ve gercek dashboard UI calisir durumda.
+
 Backend:
 
-- Owner dashboard aggregate endpoint'i.
-- Metrics: active courses, classes, students, leads, pending homework, access confirmations.
-- Recent activity read model'i.
+- Owner dashboard aggregate endpoint'i. Tamamlandi: `GET /api/v1/organization/get-owner-dashboard`.
+- Metrics: active courses, classes, students, leads, pending homework, access confirmations. Tamamlandi.
+- Recent activity read model'i. Tamamlandi: lead, homework submission ve access activity union read model.
 
 Frontend:
 
-- Owner dashboard'u Stitch referansina gore desktop-first uygulama.
-- Quick actions.
-- Pending homework/access confirmation kartlari.
-- Recent activity.
-- Course/class progress summary.
+- Owner dashboard'u Stitch referansina gore desktop-first uygulama. Tamamlandi: `/app/dashboard`.
+- Quick actions. Tamamlandi.
+- Pending homework/access confirmation kartlari. Tamamlandi.
+- Recent activity. Tamamlandi.
+- Course/class progress summary. Tamamlandi.
 
 Manual test:
 
@@ -418,26 +429,29 @@ Bitis kriteri:
 
 Amac: Potansiyel musteri platformu gercek kayit yapmadan deneyebilir.
 
+Durum: tamamlandi. Public `GET /api/v1/organization/get-demo-access` endpoint'i demo organization/course/class/lesson/material/homework ve owner/mentor/student hesaplarini idempotent sekilde hazirlar. Demo data read-only degil; MVP karari olarak resetlenebilir seed mantigi kullanilir ve `/demo` ekraninda uyari gosterilir.
+
 Backend:
 
-- Demo organization seed.
-- Demo course/class/student/mentor/content seed.
-- Demo read-only veya resetlenebilir data kurali.
-- Demo login veya demo direct preview endpoint karari.
+- Demo organization seed. Tamamlandi: `demo-school` slug'i public demo school olarak olusur/guncellenir.
+- Demo course/class/student/mentor/content seed. Tamamlandi: `Russian A1 Demo`, `Demo Group A`, owner/mentor/student hesaplari, lesson video/material ve text homework seed edilir.
+- Demo read-only veya resetlenebilir data kurali. Tamamlandi: strict read-only yerine resetlenebilir/idempotent seed karari alindi; material duplicate temizlenir, class/course/lesson/access kayitlari tekrar kullanilir.
+- Demo login veya demo direct preview endpoint karari. Tamamlandi: direct public endpoint credential ve route linklerini doner; login ekranina query ile prefill yapilir.
 
 Frontend:
 
-- Demo entry point.
-- Demo school public page.
-- Demo owner/student experience.
-- Demo mode banner ve read-only uyari state'i.
+- Demo entry point. Tamamlandi: `/demo` backend'den demo access alir.
+- Demo school public page. Tamamlandi: `/demo-school` mevcut public school sayfasini kullanir.
+- Demo owner/student/mentor experience. Tamamlandi: `/demo` owner, student ve mentor hesaplarini gosterir; login ekranina phone/password prefill ve redirect verir.
+- Demo mode banner ve read-only uyari state'i. Tamamlandi: `/demo` ekraninda resetlenebilir playground uyarisi var; global read-only enforcement MVP hardening'e birakildi.
 
 Manual test:
 
 - Landing'den demo okul acilir.
 - Demo owner dashboard gezilir.
-- Demo student lesson detail gezilir.
-- Demo mode'da kalici zarar verecek aksiyonlar engellenir veya resetlenir.
+- Demo student lesson detail ve homework gezilir.
+- Demo mentor review inbox login'i acilir.
+- Demo data tekrar endpoint cagrisi ile resetlenebilir/idempotent hazirlanir.
 
 Bitis kriteri:
 

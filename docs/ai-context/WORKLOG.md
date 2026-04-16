@@ -328,3 +328,57 @@ Append short entries as work progresses.
 - Commands: `go test ./...`, `npm run build`, local `go run ./cmd run`, class API smoke for create/list/detail/add-student/update-access, frontend `curl http://127.0.0.1:5173/`.
 - Outcome: Owner/teacher can create course classes, list classes by organization/course, add students with phone and temporary password, and update manual access/payment status. Class detail returns mentors and students correctly; mentor assignment API is ready for later UI polish.
 - Next: Step 7 lesson, Telegram video reference, and lesson material structure.
+
+### 2026-04-16 09:15
+
+- Agent: Codex
+- Task: Implement Step 7 lesson, Telegram video reference, and material metadata structure.
+- Files: `backend-go/migrations/20260416100000_create_catalog_lessons.sql`, `backend-go/internal/modules/catalog/domain/lesson/**`, `backend-go/internal/modules/catalog/domain/lessonvideo/**`, `backend-go/internal/modules/catalog/domain/lessonmaterial/**`, `backend-go/internal/modules/catalog/infra/postgres/*lesson*`, `backend-go/internal/modules/catalog/usecase/*lesson*`, `backend-go/internal/modules/catalog/module.go`, `backend-go/internal/modules/catalog/ctrl/http/http.go`, `frontend-vue/src/api/catalog.ts`, `frontend-vue/src/types/catalog.ts`, `frontend-vue/src/views/courses/CourseDetailView.vue`, `frontend-vue/src/views/lessons/LessonEditorView.vue`, `frontend-vue/src/router/index.ts`, `docs/product/implementation-plan.md`, `docs/product/local-development.md`, `docs/ai-context/WORKLOG.md`
+- Commands: `go test ./...`, `npm run build`, Homebrew `postgresql@16`, Homebrew `minio`, local `go run ./cmd run`, Step 7 API smoke for create/list/detail/update lesson, frontend `curl http://127.0.0.1:5173/`.
+- Outcome: Added lesson create/list/detail/update APIs, course lesson list/create UI, and lesson editor with Telegram video metadata and material URL metadata. Local API smoke passed: lesson detail returned `telegram` video ref, two materials, and list summary `has_video=true`, `material_count=2`, `status=published`.
+- Next: Step 8 student learning experience: student dashboard, lesson availability from class start/cadence/publish day, lesson detail, and completion.
+
+### 2026-04-16 11:20
+
+- Agent: Codex
+- Task: Implement Step 8 student learning experience.
+- Files: `backend-go/migrations/20260416110000_create_learning_completions.sql`, `backend-go/internal/modules/learning/**`, `backend-go/internal/app/app.go`, `backend-go/internal/app/run.go`, `frontend-vue/src/api/learning.ts`, `frontend-vue/src/types/learning.ts`, `frontend-vue/src/views/learning/*`, `frontend-vue/src/router/index.ts`, `docs/product/implementation-plan.md`, `docs/product/local-development.md`, `docs/ai-context/WORKLOG.md`
+- Commands: `go test ./...`, `npm run build`, Homebrew `postgresql@16`, Homebrew `minio`, local `go run ./cmd run`, Step 8 API smoke for student dashboard/detail/completion.
+- Outcome: Added learning dashboard, lesson detail, access/publish availability checks, and idempotent lesson completion. Frontend student dashboard and lesson detail routes now use real learning endpoints. Local API smoke passed: open lesson returned `available`, video provider `telegram`, one material, completion `true`, and progress `1/1/100`.
+- Next: Step 9 homework definitions and submission: lesson homework definition, written/file/audio submissions, mentor review, and student result display.
+
+### 2026-04-16 12:05
+
+- Agent: Codex
+- Task: Implement Step 9 homework definition and student submission.
+- Files: `backend-go/migrations/20260416120000_create_homework.sql`, `backend-go/internal/modules/homework/**`, `backend-go/internal/app/app.go`, `backend-go/internal/app/run.go`, `frontend-vue/src/api/homework.ts`, `frontend-vue/src/types/homework.ts`, `frontend-vue/src/views/lessons/LessonEditorView.vue`, `frontend-vue/src/views/learning/StudentLessonDetailView.vue`, `docs/product/implementation-plan.md`, `docs/product/local-development.md`, `docs/ai-context/WORKLOG.md`
+- Commands: `go test ./...`, `npm run build`, local `go run ./cmd run`, Step 9 API smoke for create quiz homework, student homework read, and quiz submit.
+- Outcome: Added homework definitions, quiz questions/options, submissions, and quiz answers. Lesson editor can save homework blocks; student lesson detail can submit text/file/audio URL placeholders or quiz answers. Local smoke passed: student saw `Cells quiz` and quiz submission returned `reviewed/5/1`.
+- Next: Step 10 mentor homework review inbox: pending submissions list, submission detail, feedback/score review, and student review result display.
+
+### 2026-04-16 13:25
+
+- Agent: Codex
+- Task: Implement Step 10 mentor homework review inbox.
+- Files: `backend-go/internal/modules/homework/usecase/*review*`, `backend-go/internal/modules/homework/usecase/helpers.go`, `backend-go/internal/modules/homework/usecase/types.go`, `backend-go/internal/modules/homework/ctrl/http/http.go`, `backend-go/internal/modules/homework/module.go`, `frontend-vue/src/views/homework/HomeworkReviewView.vue`, `frontend-vue/src/api/homework.ts`, `frontend-vue/src/types/homework.ts`, `frontend-vue/src/router/index.ts`, `frontend-vue/src/views/learning/StudentLessonDetailView.vue`, `docs/product/implementation-plan.md`, `docs/product/local-development.md`, `docs/ai-context/WORKLOG.md`
+- Commands: `go test ./...`, `npm run build`, local `go run ./cmd run`, Step 10 API smoke for text submission review.
+- Outcome: Added review submissions list, review detail, review submit, organization/class scoped review access, and review inbox UI. Local smoke passed: pending text submission appeared in review list, detail returned student answer, review saved `reviewed/9`, and student homework result returned mentor feedback.
+- Next: Step 11 owner operational dashboard with aggregate metrics, pending homework/access cards, and recent activity.
+
+### 2026-04-16 14:05
+
+- Agent: Codex
+- Task: Implement Step 11 owner operational dashboard.
+- Files: `backend-go/internal/modules/organization/usecase/getownerdashboard/usecase.go`, `backend-go/internal/modules/organization/usecase/container.go`, `backend-go/internal/modules/organization/module.go`, `backend-go/internal/modules/organization/ctrl/http/http.go`, `frontend-vue/src/views/DashboardView.vue`, `frontend-vue/src/api/organization.ts`, `frontend-vue/src/types/organization.ts`, `docs/product/implementation-plan.md`, `docs/product/local-development.md`, `docs/ai-context/WORKLOG.md`
+- Commands: `go test ./...`, `npm run build`, local `go run ./cmd run`, Step 11 API smoke for dashboard aggregate.
+- Outcome: Added owner dashboard read model with active courses/classes/students, new leads, pending homework, pending access, course progress and recent activity. Replaced placeholder dashboard with operational UI. Local smoke returned `metrics=1/1/1/0/0`, `course_progress=1`, `recent_activity=2` for a populated organization.
+- Next: Step 12 demo school and public trial experience.
+
+### 2026-04-16 15:05
+
+- Agent: Codex
+- Task: Implement Step 12 demo school and public trial experience.
+- Files: `backend-go/internal/modules/organization/usecase/getdemoaccess/usecase.go`, `backend-go/internal/modules/organization/usecase/container.go`, `backend-go/internal/modules/organization/module.go`, `backend-go/internal/modules/organization/ctrl/http/http.go`, `frontend-vue/src/views/public/DemoView.vue`, `frontend-vue/src/views/auth/LoginView.vue`, `frontend-vue/src/api/organization.ts`, `frontend-vue/src/types/organization.ts`, `docs/product/implementation-plan.md`, `docs/product/local-development.md`, `docs/ai-context/WORKLOG.md`
+- Commands: `go test ./...`, `npm run build`, local `go run ./cmd run`, Step 12 API smoke for demo access, public school page, demo owner/student/mentor login, student lesson detail, student homework, mentor inbox.
+- Outcome: Added public demo access endpoint that seeds/reset-prepares `demo-school`, demo course/class/lesson/material/homework and owner/student/mentor accounts. `/demo` now calls the endpoint, shows demo credentials, pre-fills login via query params, links to public school, owner dashboard, student lesson and mentor review. Local smoke passed with one demo material, visible student homework, and valid owner/student/mentor credentials.
+- Next: Step 13 MVP hardening and beta readiness: permission audit, tenant isolation checks, rate-limit/brute-force decision, rollback verification, and polish around demo read-only guard.

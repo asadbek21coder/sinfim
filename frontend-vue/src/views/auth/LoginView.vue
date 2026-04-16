@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
@@ -37,6 +37,11 @@ const phone = ref('')
 const password = ref('')
 const isSubmitting = ref(false)
 const errorMessage = ref('')
+
+onMounted(() => {
+  if (typeof route.query.phone === 'string') phone.value = route.query.phone
+  if (typeof route.query.password === 'string') password.value = route.query.password
+})
 
 async function submit() {
   isSubmitting.value = true

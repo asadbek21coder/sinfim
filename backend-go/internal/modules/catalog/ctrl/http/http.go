@@ -29,4 +29,8 @@ func (c *Controller) initRoutes(r fiber.Router) {
 	v1Auth.Post("/update-course", forward.ToUserAction(c.usecaseContainer.UpdateCourse()))
 	v1Auth.Get("/list-courses", forward.ToUserAction(c.usecaseContainer.ListCourses()))
 	v1Auth.Get("/get-course-detail", forward.ToUserAction(c.usecaseContainer.GetCourseDetail()))
+	v1Auth.Post("/create-lesson", forward.ToUserAction(c.usecaseContainer.CreateLesson()))
+	v1Auth.Post("/update-lesson", forward.ToUserAction(c.usecaseContainer.UpdateLesson()))
+	v1Auth.Get("/list-lessons", forward.ToUserAction(c.usecaseContainer.ListLessons()))
+	v1Auth.Get("/get-lesson-detail", forward.ToUserAction(c.usecaseContainer.GetLessonDetail()))
 }

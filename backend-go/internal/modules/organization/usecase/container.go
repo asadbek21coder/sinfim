@@ -4,6 +4,8 @@ import (
 	"go-enterprise-blueprint/internal/modules/organization/usecase/createlead"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/createorganization"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/createschoolrequest"
+	"go-enterprise-blueprint/internal/modules/organization/usecase/getdemoaccess"
+	"go-enterprise-blueprint/internal/modules/organization/usecase/getownerdashboard"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/getpublicschoolpage"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/listleads"
 	"go-enterprise-blueprint/internal/modules/organization/usecase/listmyworkspaces"
@@ -17,7 +19,9 @@ type Container struct {
 	createOrganization        createorganization.UseCase
 	createLead                createlead.UseCase
 	createSchoolRequest       createschoolrequest.UseCase
+	getDemoAccess             getdemoaccess.UseCase
 	getPublicSchoolPage       getpublicschoolpage.UseCase
+	getOwnerDashboard         getownerdashboard.UseCase
 	listLeads                 listleads.UseCase
 	listMyWorkspaces          listmyworkspaces.UseCase
 	listSchoolRequests        listschoolrequests.UseCase
@@ -30,7 +34,9 @@ func NewContainer(
 	createOrganization createorganization.UseCase,
 	createLead createlead.UseCase,
 	createSchoolRequest createschoolrequest.UseCase,
+	getDemoAccess getdemoaccess.UseCase,
 	getPublicSchoolPage getpublicschoolpage.UseCase,
+	getOwnerDashboard getownerdashboard.UseCase,
 	listLeads listleads.UseCase,
 	listMyWorkspaces listmyworkspaces.UseCase,
 	listSchoolRequests listschoolrequests.UseCase,
@@ -42,7 +48,9 @@ func NewContainer(
 		createOrganization:        createOrganization,
 		createLead:                createLead,
 		createSchoolRequest:       createSchoolRequest,
+		getDemoAccess:             getDemoAccess,
 		getPublicSchoolPage:       getPublicSchoolPage,
+		getOwnerDashboard:         getOwnerDashboard,
 		listLeads:                 listLeads,
 		listMyWorkspaces:          listMyWorkspaces,
 		listSchoolRequests:        listSchoolRequests,
@@ -64,8 +72,16 @@ func (c *Container) CreateSchoolRequest() createschoolrequest.UseCase {
 	return c.createSchoolRequest
 }
 
+func (c *Container) GetDemoAccess() getdemoaccess.UseCase {
+	return c.getDemoAccess
+}
+
 func (c *Container) GetPublicSchoolPage() getpublicschoolpage.UseCase {
 	return c.getPublicSchoolPage
+}
+
+func (c *Container) GetOwnerDashboard() getownerdashboard.UseCase {
+	return c.getOwnerDashboard
 }
 
 func (c *Container) ListLeads() listleads.UseCase {

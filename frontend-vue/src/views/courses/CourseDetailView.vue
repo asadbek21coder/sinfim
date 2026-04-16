@@ -4,8 +4,8 @@
       <div>
         <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Catalog</p>
         <h1 class="mt-1 font-display text-3xl font-bold text-primary">{{ form.title || 'Course detail' }}</h1>
-        <p class="mt-2 max-w-2xl text-sm leading-6 text-on-surface-variant">
-          Course settings are the first layer. Lessons, classes and materials will attach here in the next steps.
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-on-surface-variant">
+          Course settings, lessons, Telegram video references, materials and classes are managed from here.
         </p>
       </div>
       <div class="flex flex-wrap gap-2">
@@ -72,7 +72,7 @@
           <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Next</p>
           <h2 class="mt-2 font-display text-xl font-bold text-primary">Lessons and classes</h2>
           <p class="mt-2 text-sm leading-6 text-on-surface-variant">
-            Lesson editor, Telegram video references, materials and class/group attachment will be added after this step.
+            Create lessons, attach Telegram stream references and add PDF/material links before groups start learning.
           </p>
         </section>
         <section class="card">
@@ -81,6 +81,48 @@
         </section>
       </aside>
     </div>
+
+    <section class="grid gap-6 xl:grid-cols-[1fr_360px]">
+      <div class="overflow-hidden rounded-lg border border-outline-variant bg-surface-container-lowest shadow-sm">
+        <table class="data-table">
+          <thead><tr><th>Lesson</th><th>Publish</th><th>Content</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr v-if="lessons.length === 0"><td colspan="5" class="text-center text-on-surface-variant">No lessons for this course yet.</td></tr>
+            <tr v-for="item in lessons" :key="item.id">
+              <td><p class="font-semibold text-primary">{{ item.order_number }}. {{ item.title }}</p><p class="mt-1 text-xs text-on-surface-variant">{{ item.description || 'No description yet' }}</p></td>
+              <td>Day {{ item.publish_day }}</td>
+              <td><span class="text-sm text-on-surface-variant">{{ item.has_video ? 'Video' : 'No video' }} · {{ item.material_count }} material</span></td>
+              <td><span class="chip-approved">{{ item.status }}</span></td>
+              <td><RouterLink class="btn-secondary" :to="`/app/lessons/${item.id}/edit`">Edit</RouterLink></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="card space-y-4">
+        <div>
+          <h2 class="font-display text-xl font-bold text-primary">New lesson</h2>
+          <p class="mt-1 text-sm text-on-surface-variant">Start with the lesson shell; video and materials are added in the editor.</p>
+        </div>
+        <form class="space-y-4" @submit.prevent="createLesson">
+          <div>
+            <label class="form-label" for="lesson-title">Title</label>
+            <input id="lesson-title" v-model.trim="lessonForm.title" class="form-input" required placeholder="Lesson 1 - Alphabet">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="form-label" for="lesson-order">Order</label>
+              <input id="lesson-order" v-model.number="lessonForm.order_number" class="form-input" min="1" type="number">
+            </div>
+            <div>
+              <label class="form-label" for="publish-day">Publish day</label>
+              <input id="publish-day" v-model.number="lessonForm.publish_day" class="form-input" min="1" type="number">
+            </div>
+          </div>
+          <button class="btn-primary w-full justify-center py-3" type="submit" :disabled="isCreatingLesson || !course">{{ isCreatingLesson ? 'Creating...' : 'Create lesson' }}</button>
+        </form>
+      </section>
+    </section>
 
     <section class="grid gap-6 xl:grid-cols-[1fr_360px]">
       <div class="overflow-hidden rounded-lg border border-outline-variant bg-surface-container-lowest shadow-sm">
@@ -134,7 +176,7 @@ import { RouterLink, useRoute } from 'vue-router'
 import { catalogApi } from '@/api/catalog'
 import { classroomApi } from '@/api/classroom'
 import { organizationApi } from '@/api/organization'
-import type { CourseDto, CoursePublicStatus, CourseStatus } from '@/types/catalog'
+import type { CourseDto, CoursePublicStatus, CourseStatus, LessonSummaryDto } from '@/types/catalog'
 import type { ClassSummaryDto, LessonCadence } from '@/types/classroom'
 import type { WorkspaceDto } from '@/types/organization'
 
@@ -143,9 +185,11 @@ const workspace = ref<WorkspaceDto | null>(null)
 const course = ref<CourseDto | null>(null)
 const isSaving = ref(false)
 const isCreatingClass = ref(false)
+const isCreatingLesson = ref(false)
 const errorMessage = ref('')
 const successMessage = ref('')
 const classes = ref<ClassSummaryDto[]>([])
+const lessons = ref<LessonSummaryDto[]>([])
 
 const form = reactive({
   title: '',
@@ -160,6 +204,12 @@ const classForm = reactive({
   name: '',
   start_date: '',
   lesson_cadence: 'every_other_day' as LessonCadence,
+})
+
+const lessonForm = reactive({
+  title: '',
+  order_number: 0,
+  publish_day: 0,
 })
 
 const publicHref = computed(() => {
@@ -182,9 +232,42 @@ async function load() {
     form.level = course.value.level ?? ''
     form.status = course.value.status
     form.public_status = course.value.public_status
-    await loadClasses()
+    await Promise.all([loadLessons(), loadClasses()])
   } catch {
     errorMessage.value = 'Course detail could not be loaded.'
+  }
+}
+
+async function loadLessons() {
+  if (!course.value) return
+  const response = await catalogApi.listLessons({ course_id: course.value.id, limit: 200 })
+  lessons.value = response.data.items
+}
+
+async function createLesson() {
+  if (!course.value) return
+  isCreatingLesson.value = true
+  errorMessage.value = ''
+  successMessage.value = ''
+  try {
+    const response = await catalogApi.createLesson({
+      course_id: course.value.id,
+      title: lessonForm.title,
+      order_number: lessonForm.order_number || undefined,
+      publish_day: lessonForm.publish_day || undefined,
+    })
+    lessonForm.title = ''
+    lessonForm.order_number = 0
+    lessonForm.publish_day = 0
+    successMessage.value = 'Lesson created.'
+    await loadLessons()
+    window.setTimeout(() => {
+      window.location.href = `/app/lessons/${response.data.item.id}/edit`
+    }, 250)
+  } catch {
+    errorMessage.value = 'Lesson could not be created. Check order number conflicts.'
+  } finally {
+    isCreatingLesson.value = false
   }
 }
 

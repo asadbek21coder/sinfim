@@ -6,6 +6,8 @@ import (
 	"go-enterprise-blueprint/internal/modules/catalog"
 	"go-enterprise-blueprint/internal/modules/classroom"
 	"go-enterprise-blueprint/internal/modules/filevault"
+	"go-enterprise-blueprint/internal/modules/homework"
+	"go-enterprise-blueprint/internal/modules/learning"
 	"go-enterprise-blueprint/internal/modules/organization"
 	"go-enterprise-blueprint/internal/modules/platform"
 
@@ -48,6 +50,10 @@ type Config struct {
 
 	Classroom classroom.Config `yaml:"classroom"`
 
+	Homework homework.Config `yaml:"homework"`
+
+	Learning learning.Config `yaml:"learning"`
+
 	Organization organization.Config `yaml:"organization"`
 
 	Platform platform.Config `yaml:"platform"`
@@ -66,6 +72,8 @@ type app struct {
 	filevault    *filevault.Module
 	catalog      *catalog.Module
 	classroom    *classroom.Module
+	homework     *homework.Module
+	learning     *learning.Module
 	organization *organization.Module
 	platform     *platform.Module
 }

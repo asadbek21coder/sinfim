@@ -3,9 +3,13 @@ import type {
   CoursePublicStatus,
   CourseResponse,
   CreateCoursePayload,
+  CreateLessonPayload,
+  LessonResponse,
   ListCoursesResponse,
+  ListLessonsResponse,
   PublicCoursePageResponse,
   UpdateCoursePayload,
+  UpdateLessonPayload,
 } from '@/types/catalog'
 
 export const catalogApi = {
@@ -25,4 +29,16 @@ export const catalogApi = {
     client.get<PublicCoursePageResponse>('/catalog/get-public-course-page', {
       params: { school_slug: schoolSlug, course_slug: courseSlug },
     }),
+
+  createLesson: (body: CreateLessonPayload) =>
+    client.post<LessonResponse>('/catalog/create-lesson', body),
+
+  updateLesson: (body: UpdateLessonPayload) =>
+    client.post<LessonResponse>('/catalog/update-lesson', body),
+
+  listLessons: (params: { course_id: string; status?: string; limit?: number }) =>
+    client.get<ListLessonsResponse>('/catalog/list-lessons', { params }),
+
+  getLessonDetail: (id: string) =>
+    client.get<LessonResponse>('/catalog/get-lesson-detail', { params: { id } }),
 }

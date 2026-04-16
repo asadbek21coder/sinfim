@@ -159,7 +159,7 @@ const router = createRouter({
     },
     {
       path: '/app/lessons/:lessonId/edit',
-      component: () => import('@/views/PlaceholderView.vue'),
+      component: () => import('@/views/lessons/LessonEditorView.vue'),
       meta: {
         layout: 'app',
         requiresAuth: true,
@@ -171,7 +171,7 @@ const router = createRouter({
     },
     {
       path: '/app/homework/review',
-      component: () => import('@/views/PlaceholderView.vue'),
+      component: () => import('@/views/homework/HomeworkReviewView.vue'),
       meta: {
         layout: 'app',
         requiresAuth: true,
@@ -195,7 +195,7 @@ const router = createRouter({
     },
     {
       path: '/learn/dashboard',
-      component: () => import('@/views/PlaceholderView.vue'),
+      component: () => import('@/views/learning/StudentDashboardView.vue'),
       meta: {
         layout: 'student',
         requiresAuth: true,
@@ -207,7 +207,7 @@ const router = createRouter({
     },
     {
       path: '/learn/lessons/:lessonId',
-      component: () => import('@/views/PlaceholderView.vue'),
+      component: () => import('@/views/learning/StudentLessonDetailView.vue'),
       meta: {
         layout: 'student',
         requiresAuth: true,

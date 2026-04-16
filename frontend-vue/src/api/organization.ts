@@ -4,9 +4,11 @@ import type {
   CreateSchoolRequestResponse,
   CreateOrganizationPayload,
   CreateOrganizationResponse,
+  DemoAccessResponse,
   CreateLeadPayload,
   CreateLeadResponse,
   ListMyWorkspacesResponse,
+  OwnerDashboardResponse,
   ListLeadsResponse,
   ListSchoolRequestsResponse,
   LeadStatus,
@@ -22,6 +24,9 @@ export const organizationApi = {
   createSchoolRequest: (body: CreateSchoolRequestPayload) =>
     client.post<CreateSchoolRequestResponse>('/organization/create-school-request', body),
 
+  getDemoAccess: () =>
+    client.get<DemoAccessResponse>('/organization/get-demo-access'),
+
   listSchoolRequests: (params?: { status?: SchoolRequestStatus; limit?: number }) =>
     client.get<ListSchoolRequestsResponse>('/organization/list-school-requests', { params }),
 
@@ -33,6 +38,9 @@ export const organizationApi = {
 
   listMyWorkspaces: () =>
     client.get<ListMyWorkspacesResponse>('/organization/list-my-workspaces'),
+
+  getOwnerDashboard: (params?: { organization_id?: string }) =>
+    client.get<OwnerDashboardResponse>('/organization/get-owner-dashboard', { params }),
 
   updateOrganization: (body: UpdateOrganizationPayload) =>
     client.post<UpdateOrganizationResponse>('/organization/update-organization', body),

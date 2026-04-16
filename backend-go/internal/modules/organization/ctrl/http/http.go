@@ -24,6 +24,7 @@ func (c *Controller) initRoutes(r fiber.Router) {
 	v1 := r.Group("/api/v1/organization")
 
 	v1.Post("/create-school-request", forward.ToUserAction(c.usecaseContainer.CreateSchoolRequest()))
+	v1.Get("/get-demo-access", forward.ToUserAction(c.usecaseContainer.GetDemoAccess()))
 	v1.Get("/get-public-school-page", forward.ToUserAction(c.usecaseContainer.GetPublicSchoolPage()))
 	v1.Post("/create-lead", forward.ToUserAction(c.usecaseContainer.CreateLead()))
 
@@ -32,6 +33,7 @@ func (c *Controller) initRoutes(r fiber.Router) {
 	platformManage := auth.RequirePermission(auth.PermissionUserManage)
 	v1Auth.Post("/create-organization", platformManage, forward.ToUserAction(c.usecaseContainer.CreateOrganization()))
 	v1Auth.Get("/list-my-workspaces", forward.ToUserAction(c.usecaseContainer.ListMyWorkspaces()))
+	v1Auth.Get("/get-owner-dashboard", forward.ToUserAction(c.usecaseContainer.GetOwnerDashboard()))
 	v1Auth.Post("/update-organization", forward.ToUserAction(c.usecaseContainer.UpdateOrganization()))
 	v1Auth.Get("/list-leads", forward.ToUserAction(c.usecaseContainer.ListLeads()))
 	v1Auth.Post("/update-lead-status", forward.ToUserAction(c.usecaseContainer.UpdateLeadStatus()))

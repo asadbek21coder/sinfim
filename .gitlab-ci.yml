@@ -1,0 +1,20 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  # GitLab provides these variables automatically
+  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/frontend:latest
+  BACKEND_IMAGE: $CI_REGISTRY_IMAGE/backend:latest
+
+build_images:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  script:
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+    - docker build -t $FRONTEND_IMAGE ./frontend
+    - docker build -t $BACKEND_IMAGE ./backend
+    - docker push $FRONTEND_IMAGE
+    - docker push $BACKEND_IMAGE

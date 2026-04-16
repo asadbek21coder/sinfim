@@ -281,6 +281,138 @@ POST /api/v1/classroom/update-access
 POST /api/v1/classroom/assign-mentor
 ```
 
+## Step 7 Lesson, Video Reference and Materials Manual Test
+
+Browser testi:
+
+1. Backend ve frontend calisir durumda olsun: `http://localhost:9876/health`, `http://localhost:5173`.
+2. Owner ile login ol ve `http://localhost:5173/app/courses` uzerinden bir course ac.
+3. `http://localhost:5173/app/courses/{courseId}` ekraninda `New lesson` formundan ders olustur.
+4. Otomatik olarak `http://localhost:5173/app/lessons/{lessonId}/edit` editorune gec veya lesson listesinden `Edit` bas.
+5. Title, order, publish day ve status alanlarini duzenle.
+6. Video reference bolumunu ac, provider `Telegram` sec ve stream/channel/message/embed metadata gir.
+7. Bir veya daha fazla material ekle: title, type `PDF`, URL.
+8. Save basinca success mesaji gorulur.
+9. Course detail'e donunce lesson listesinde video/material sayisi gorulur.
+
+API endpointleri:
+
+```bash
+POST /api/v1/catalog/create-lesson
+GET  /api/v1/catalog/list-lessons?course_id={courseId}
+GET  /api/v1/catalog/get-lesson-detail?id={lessonId}
+POST /api/v1/catalog/update-lesson
+```
+
+Not: MVP'de material dosyasini direkt yuklemek yerine URL/file metadata saklanir. Filevault/MinIO upload baglantisi sonraki dosya polish adiminda eklenecek.
+
+## Step 8 Student Learning Manual Test
+
+Browser testi:
+
+1. Backend ve frontend calisir durumda olsun: `http://localhost:9876/health`, `http://localhost:5173`.
+2. Owner ile bir course, class, published lesson ve active access'li student olustur.
+3. Student phone/password ile login ol.
+4. `http://localhost:5173/learn/dashboard` ac.
+5. Aktif sinif, progress ve lesson listesi gorulur; kilitli derslerde locked badge gorulur.
+6. Acik bir derste `Open lesson` bas ve `http://localhost:5173/learn/lessons/{lessonId}` sayfasini kontrol et.
+7. Video reference ve material linkleri gorulur.
+8. `Mark completed` basinca dashboard progress degeri artar.
+
+API endpointleri:
+
+```bash
+GET  /api/v1/learning/get-student-dashboard?class_id={classId}
+GET  /api/v1/learning/get-lesson-detail?class_id={classId}&lesson_id={lessonId}
+POST /api/v1/learning/mark-lesson-completed
+```
+
+Not: Lesson availability class `start_date`, class `cadence`, lesson `publish_day` ve lesson status alanlarindan hesaplanir. Access status active degilse student dashboard dersi gosterir ama icerik kilitli kalir.
+
+## Step 9 Homework Definition and Submission Manual Test
+
+Browser testi:
+
+1. Backend ve frontend calisir durumda olsun: `http://localhost:9876/health`, `http://localhost:5173`.
+2. Owner veya platform admin ile login ol ve `http://localhost:5173/app/lessons/{lessonId}/edit` ac.
+3. `Homework` bolumunu enabled yap.
+4. Text/file/audio/quiz type sec, title ve instructions gir.
+5. Quiz type icin en az bir question ve correct option gir.
+6. Status `Published` sec ve `Save homework` bas.
+7. Active access'li student ile login ol.
+8. `http://localhost:5173/learn/lessons/{lessonId}?class_id={classId}` ac.
+9. Homework formunu doldur ve submit et.
+10. Quiz ise score hemen gorulur; text/file/audio ise status `submitted` kalir ve Step 10 review inbox'a gider.
+
+API endpointleri:
+
+```bash
+POST /api/v1/homework/save-definition
+GET  /api/v1/homework/get-lesson-homework?lesson_id={lessonId}
+GET  /api/v1/homework/get-student-homework?class_id={classId}&lesson_id={lessonId}
+POST /api/v1/homework/submit-homework
+```
+
+Not: MVP'de file/photo/audio teslimlerinde gercek upload yerine URL metadata saklanir. Filevault upload polish sonraki dosya adiminda eklenecek.
+
+## Step 10 Mentor Homework Review Manual Test
+
+Browser testi:
+
+1. Backend ve frontend calisir durumda olsun: `http://localhost:9876/health`, `http://localhost:5173`.
+2. Student tarafindan text/file/audio homework submission olustur.
+3. Owner, teacher veya class'a atanmis mentor ile login ol.
+4. `http://localhost:5173/app/homework/review` ac.
+5. Pending review listesinde submission gorulur.
+6. Submission secilince ogrenci cevabi, ders/sinif bilgisi ve review formu acilir.
+7. Score ve feedback gir, status `Reviewed` veya `Needs revision` sec, `Save review` bas.
+8. Student tekrar lesson detail sayfasini actiginda score, status ve feedback gorur.
+
+API endpointleri:
+
+```bash
+GET  /api/v1/homework/list-review-submissions?status=submitted&limit=100
+GET  /api/v1/homework/get-review-submission?id={submissionId}
+POST /api/v1/homework/review-submission
+GET  /api/v1/homework/get-student-homework?class_id={classId}&lesson_id={lessonId}
+```
+
+Permission notu: platform admin hepsini gorebilir; owner/teacher kendi organization'indaki submissions'i gorebilir; mentor sadece `classroom.class_mentors` ile atandigi class submissions'ini gorebilir.
+
+## Step 11 Owner Operational Dashboard Manual Test
+
+Browser testi:
+
+1. Backend ve frontend calisir durumda olsun: `http://localhost:9876/health`, `http://localhost:5173`.
+2. Owner veya teacher ile login ol.
+3. `http://localhost:5173/app/dashboard` ac.
+4. Active courses/classes/students, pending homework ve pending access metriclerini kontrol et.
+5. Quick action linkleri `Courses`, `Classes`, `Homework`, `Leads` ekranlarina gider.
+6. Bir homework submission review edilince pending homework sayisinin azalmasini kontrol et.
+7. Pending access/payment update edilince access confirmation kartlarinin degismesini kontrol et.
+
+API endpointi:
+
+```bash
+GET /api/v1/organization/get-owner-dashboard?organization_id={organizationId}
+```
+
+Not: `organization_id` platform admin smoke/test icin kullanilabilir. Owner/teacher/mentor kendi ilk workspace'i icin parametresiz dashboard alabilir. Mentor dashboard'u organization geneli yerine sadece access yetkisi olan operasyonlara gore ileride daraltilabilir; MVP'de owner dashboard ana odaktir.
+
+Docker Desktop kapaliysa local smoke icin Homebrew servisleriyle de calisilabilir:
+
+```bash
+brew services start postgresql@16
+createuser -s postgres 2>/dev/null || true
+psql -d postgres -c "ALTER USER postgres WITH PASSWORD 'postgres';"
+createdb -O postgres blueprint 2>/dev/null || true
+
+MINIO_ROOT_USER=minioadmin MINIO_ROOT_PASSWORD=minioadmin \
+  minio server --address :9100 --console-address :9101 /opt/homebrew/var/minio-sinfim
+```
+
+Bu durumda backend yine `ENVIRONMENT=local go run ./cmd run` ile `backend-go/config/local.yaml` degerlerini kullanir.
+
 ## Migration ve Seed Standardi
 
 Backend migration dosyalari `backend-go/migrations/` altinda kalacak.
@@ -291,7 +423,36 @@ Kurallar:
 - Migration dosyalari blueprint'in mevcut goose standardini takip edecek.
 - Uygulama baslarken `app.init()` icinde migration up calismaya devam edecek.
 - Seed data MVP boyunca CLI komutu veya `backend-go/scripts/seeds/` altindaki SQL dosyalari ile yonetilecek.
-- Demo school seed'i Step 12'de ayrica netlestirilecek.
+- Demo school seed'i `GET /api/v1/organization/get-demo-access` endpoint'i ile resetlenebilir/idempotent sekilde hazirlanir.
+
+## Step 12 Demo School Manual Test
+
+Browser testi:
+
+1. Backend ve frontend calisir durumda olsun: `http://localhost:9876/health`, `http://localhost:5173`.
+2. `http://localhost:5173/demo` ac.
+3. Demo kartinda owner, mentor ve student hesaplari gorulur.
+4. `Open public school` ile `http://localhost:5173/demo-school` acilir.
+5. Owner account ile login ol; login formu phone/password alanlarini doldurur ve `/app/dashboard` redirect eder.
+6. Student account ile login ol; lesson detail sayfasina gider ve video/material/homework gorulur.
+7. Mentor account ile login ol; `/app/homework/review` acilir.
+
+Demo hesaplari:
+
+```text
+Owner:   +998900000777 / DemoPass123
+Student: +998900000778 / DemoPass123
+Mentor:  +998900000779 / DemoPass123
+```
+
+API smoke:
+
+```bash
+curl -sS http://127.0.0.1:9876/api/v1/organization/get-demo-access | jq .
+curl -sS "http://127.0.0.1:9876/api/v1/organization/get-public-school-page?slug=demo-school" | jq .organization
+```
+
+Not: MVP demo modu strict read-only degildir. Karar: demo school resetlenebilir seed olarak calisir; gercek kullanici verisi buraya girilmemeli. Global demo read-only guard MVP hardening/polish adiminda ele alinabilir.
 
 ## Step 0 Manual Test
 
